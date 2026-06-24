@@ -5,11 +5,11 @@ import {
   sitemapChangeFrequency,
   sitemapPriority,
 } from "@/lib/sitemap-config";
-import { getAllPostSlugs } from "@/sanity/queries";
+import { getAllPostSlugs } from "@/lib/blog/posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths = getAllSitemapPaths();
-  const postSlugs = await getAllPostSlugs();
+  const postSlugs = getAllPostSlugs();
   const uniqueBlogSlugs = [...new Set(postSlugs.map(({ slug }) => slug))];
   const blogPaths = uniqueBlogSlugs.map((slug) => `/blog/${slug}`);
   const paths = [...staticPaths, ...blogPaths];

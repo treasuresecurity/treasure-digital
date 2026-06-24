@@ -3,8 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { blogCoverAlt } from "@/lib/image-alt";
-import type { BlogPostListItem } from "@/sanity/types";
-import { urlFor } from "@/sanity/image";
+import type { BlogPostListItem } from "@/lib/blog/types";
 
 export async function BlogPostCard({
   post,
@@ -14,9 +13,6 @@ export async function BlogPostCard({
   locale: string;
 }) {
   const t = await getTranslations("blogPage");
-  const coverUrl = post.cover
-    ? urlFor(post.cover).width(800).height(450).quality(90).url()
-    : null;
   const formattedDate = formatPostDate(post.publishedAt, locale);
 
   return (
@@ -25,9 +21,9 @@ export async function BlogPostCard({
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 ease-brand hover:-translate-y-1"
     >
       <div className="relative aspect-video overflow-hidden border-b border-border bg-surface-2">
-        {coverUrl ? (
+        {post.cover ? (
           <Image
-            src={coverUrl}
+            src={post.cover}
             alt={blogCoverAlt(post.title)}
             fill
             loading="lazy"

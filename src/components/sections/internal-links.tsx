@@ -10,7 +10,7 @@ import {
   serviceToBlog,
 } from "@/lib/internal-links";
 import { allServices } from "@/lib/services";
-import { getPostBySlug } from "@/sanity/queries";
+import { getPostMetaBySlug } from "@/lib/blog/posts";
 
 export async function ServiceRelatedLinks({
   serviceKey,
@@ -25,9 +25,9 @@ export async function ServiceRelatedLinks({
   const portfolioSlug = getPortfolioSlugForService(serviceKey);
   const portfolioCaseKey = getPortfolioCaseKeyForService(serviceKey);
   const blogSlugs = serviceToBlog[serviceKey] ?? [];
-  const blogPosts = (
-    await Promise.all(blogSlugs.map((slug) => getPostBySlug(slug, locale)))
-  ).filter(Boolean);
+  const blogPosts = blogSlugs
+    .map((slug) => getPostMetaBySlug(slug, locale))
+    .filter(Boolean);
 
   if (!portfolioSlug && blogPosts.length === 0) return null;
 

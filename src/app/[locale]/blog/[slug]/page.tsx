@@ -3,18 +3,16 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
-import { PostBody } from "@/components/sections/post-body";
 import { BlogRelatedLinks } from "@/components/sections/internal-links";
 import { BlogPostingJsonLd } from "@/components/seo/blog-posting-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { blogCoverAlt } from "@/lib/image-alt";
+import { getAllPostSlugs, getPostBySlug } from "@/lib/blog/posts";
 import { buildPageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
-import { urlFor } from "@/sanity/image";
-import { getAllPostSlugs, getPostBySlug } from "@/sanity/queries";
 
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs();
+  const slugs = getAllPostSlugs();
   return slugs.map(({ slug, locale }) => ({ locale, slug }));
 }
 
@@ -48,14 +46,12 @@ export default async function BlogPostPage({
 
   const t = await getTranslations("blogPage");
   const tn = await getTranslations("nav");
-  const coverUrl = post.cover
-    ? urlFor(post.cover).width(1400).height(788).quality(95).url()
-    : null;
   const formattedDate = new Intl.DateTimeFormat(
     locale === "bg" ? "bg-BG" : "en-GB",
     { day: "numeric", month: "long", year: "numeric" },
   ).format(new Date(post.publishedAt));
   const articleUrl = absoluteUrl(`/blog/${slug}`, locale);
+  const coverUrl = post.cover ?? null;
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
@@ -118,9 +114,7 @@ export default async function BlogPostPage({
           </div>
         )}
 
-        <div className="measure mt-10">
-          <PostBody value={post.body} />
-        </div>
+        <div className="measure mt-10 flex flex-col gap-6">{post.content}</div>
 
         <BlogRelatedLinks slug={slug} />
       </article>

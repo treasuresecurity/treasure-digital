@@ -4,7 +4,6 @@ export function ResourceHints() {
     <>
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-      <link rel="dns-prefetch" href="https://cdn.sanity.io" />
     </>
   );
 }
