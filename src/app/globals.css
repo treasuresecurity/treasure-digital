@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a class on <html> (next-themes attribute="class"). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================
+   DESIGN TOKENS — Treasure Digital (master-plan §2)
+   :root = LIGHT mode · .dark = DARK mode (primary brand mode)
+   ============================================================ */
+:root {
+  /* brand */
+  --brand-blue: #0061fe;
+  --brand-blue-300: #2e7bff; /* mid-stop of the signature gradient */
+  --brand-blue-600: #0052d6;
+  --brand-amber: #e8a50b;
+
+  /* LIGHT MODE (default-light) */
+  --bg: #ffffff;
+  --surface: #f5f7fa;
+  --surface-2: #eceff5;
+  --text: #1f1f1e;
+  --text-muted: #5b6472;
+  --border: #e5e8ef;
+  --primary: var(--brand-blue);
+  --primary-foreground: #ffffff;
+  --accent: var(--brand-amber);
+  --ring: rgba(0, 97, 254, 0.35);
+
+  /* signature gradient (accents / glow ONLY) */
+  --gradient-brand: linear-gradient(120deg, #0061fe 0%, #2e7bff 45%, #e8a50b 100%);
+}
+
+.dark {
+  /* DARK MODE (primary brand mode) */
+  --bg: #000817;
+  --surface: #0a1426;
+  --surface-2: #12203a;
+  --text: #ffffff;
+  --text-muted: #9aa7bd;
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #2e7bff; /* slightly brightened blue for AA contrast on dark */
+  --primary-foreground: #ffffff;
+  --accent: #f5b028; /* slightly brightened amber for dark */
+  --ring: rgba(46, 123, 255, 0.45);
+}
+
+/* ============================================================
+   TAILWIND THEME MAPPING (Tailwind v4 CSS-first config)
+   `inline` so utilities reference the live CSS variables and
+   respond to the .dark class at runtime.
+   ============================================================ */
+@theme inline {
+  /* color tokens */
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-ring: var(--ring);
+
+  /* fixed brand swatches */
+  --color-brand-blue: #0061fe;
+  --color-brand-blue-600: #0052d6;
+  --color-brand-amber: #e8a50b;
+  --color-brand-night: #000817;
+
+  /* fonts (wired to next/font CSS variables) */
+  --font-display: var(--font-unbounded), system-ui, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  /* fluid type scale (master-plan §2.4) */
+  --text-display-xl: clamp(2.75rem, 6vw, 5.5rem);
+  --text-display-xl--line-height: 1.05;
+  --text-h1: clamp(2.25rem, 4vw, 3.5rem);
+  --text-h1--line-height: 1.1;
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --text-h2--line-height: 1.15;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.25;
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.7;
+  --text-small: 0.9375rem;
+  --text-small--line-height: 1.5;
+
+  /* radius (master-plan §2.5) */
+  --radius-btn: 0.75rem;
+  --radius-xl: 1rem; /* cards */
+  --radius-2xl: 1.5rem; /* large panels */
+
+  /* motion (master-plan §2.5) */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* elevation — soft brand glow instead of heavy shadow (master-plan §2.5/§2.6) */
+  --shadow-glow: 0 0 24px rgba(0, 97, 254, 0.4);
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+@layer base {
+  html {
+    /* prevent layout shift from scrollbar; smooth color transitions on toggle */
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.7;
+    /* never justify body copy — left-aligned per master-plan §2.4 */
+    text-align: left;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* readable measure: ~60–75 characters per line */
+  .measure {
+    max-width: 70ch;
+  }
+}

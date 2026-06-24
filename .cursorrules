@@ -1,0 +1,135 @@
+# ============================================================
+# PROJECT RULES — TREASURE DIGITAL
+# Premium bilingual (BG default, EN) digital agency website.
+# Cursor: follow these rules on EVERY edit and generation.
+# Source of truth for full detail: /docs/treasure-digital-master-plan.md
+# ============================================================
+
+## 1. IDENTITY & CONTEXT
+- Company: "Treasure Digital" — a digital agency (App Dev, Web Dev, Digital Marketing,
+  eShop/eCommerce, SEO, Google Ads, Meta/Facebook Ads, Social Media Management).
+- Priority services (give visual weight): App Development, Web Development, Digital Marketing.
+- Markets: Bulgaria (primary) + international. The site is the company's own portfolio —
+  it must look like a top-tier agency at every screen size.
+- Brand mark: an infinity loop in blue + amber with a digital "pixel-splash" detail.
+  Meaning: endless growth, continuity, momentum.
+
+## 2. TECH STACK (do not introduce alternatives without asking)
+- Next.js (App Router) + TypeScript
+- Tailwind CSS (tokens below)
+- next-intl (i18n), next-themes (dark/light)
+- motion (Framer Motion; import from "motion/react")
+- react-hook-form + zod (forms), resend (email)
+- Sanity (next-sanity) for the blog
+- lucide-react (icons), clsx + tailwind-merge (a `cn()` util)
+- Hosting: Vercel. Rendering: SSG for all marketing pages.
+
+## 3. HARD RULES (non-negotiable)
+- NEVER hardcode hex colors in components. Use the CSS variables / Tailwind tokens only.
+- NEVER use carousels, sliders, or auto-rotating hero banners. One static hero, one primary CTA.
+- NEVER hardcode user-facing text in components — all copy comes from next-intl messages
+  (src/messages/bg.json, src/messages/en.json). Bulgarian is the default; never ship English-only text.
+- NEVER justify body text. Left-align, ~60–75 characters per line.
+- NEVER use localStorage/sessionStorage for theme/state in SSR-rendered code — use cookies or next-themes.
+- NEVER use native <form> submit behavior — handle via onSubmit handlers.
+- Fonts MUST support Cyrillic. If a font lacks Cyrillic, do not use it.
+- Currency is EURO (€) ONLY. There is no "лв."/leva anywhere. Use "от €X" (BG) / "from €X" (EN).
+- Dark mode is the PRIMARY/default experience. Always ship a working light/dark toggle.
+
+## 4. DESIGN TOKENS
+Brand colors (sampled from official logo): blue #0061FE, amber #E8A50B, night #000817,
+ink #1F1F1E, white #FFFFFF. Signature gradient (accents/glow ONLY):
+  linear-gradient(120deg, #0061FE 0%, #2E7BFF 45%, #E8A50B 100%)
+
+Use these CSS variables (defined in globals.css) via Tailwind tokens — never raw hex:
+  bg, surface, surface-2, text, text-muted, border, primary, primary-foreground, accent, ring
+
+Light mode:  bg #FFFFFF · surface #F5F7FA · surface-2 #ECEFF5 · text #1F1F1E ·
+             text-muted #5B6472 · border #E5E8EF · primary #0061FE · accent #E8A50B
+Dark mode:   bg #000817 · surface #0A1426 · surface-2 #12203A · text #FFFFFF ·
+             text-muted #9AA7BD · border rgba(255,255,255,.08) ·
+             primary #2E7BFF · accent #F5B028   (brightened for AA contrast on dark)
+
+Both modes MUST pass WCAG AA contrast (4.5:1 body text). Use amber as a sparing accent (dots,
+highlights, gradient end), not as a fill color for large areas.
+
+## 5. TYPOGRAPHY
+- Max TWO font families: one display (bold, geometric, Cyrillic-ready) + one body (clean, Cyrillic-ready).
+- Load as variable fonts, font-display: swap, preload the above-the-fold display font.
+- Type-first design: headlines are large and confident. Fluid sizing with clamp().
+  Display XL clamp(2.75rem,6vw,5.5rem) · H1 clamp(2.25rem,4vw,3.5rem) ·
+  H2 clamp(1.75rem,3vw,2.5rem) · H3 1.5rem · Body 1.0625rem/1.7 · Small 0.9375rem.
+
+## 6. LAYOUT, SPACING, COMPONENTS
+- Spacing scale: 4/8/12/16/24/32/48/64/96 px. Be generous — whitespace reads as premium.
+- Radius: cards 1rem, large panels 1.5rem, buttons 0.75rem, pills full.
+- Elevation in dark mode: subtle borders + soft blue/amber glows, not heavy black shadows.
+- Use BENTO grids (mixed-size cards) for services and portfolio.
+- Cards: bg-surface + border + rounded-2xl + hover lift + faint gradient edge.
+- Buttons:
+  - Primary: bg-primary, text-primary-foreground, radius .75rem; hover = darker blue + slight
+    lift + glow 0 0 24px rgba(0,97,254,.4).
+  - Secondary: transparent, border-border, text = --text; hover = border-primary.
+- Header: sticky, translucent (backdrop-blur), dark-mode logo, nav, PERSISTENT primary CTA,
+  theme toggle, BG/EN switcher.
+- Echo the amber dots from the logo as small decorative markers (section numbers, list bullets).
+
+## 7. MOTION
+- Subtle and branded. Durations 150–400ms, ease cubic-bezier(.22,1,.36,1).
+- Allowed: scroll-reveal, hover lift, animated stat counters, kinetic hero type, the infinity
+  mark drawing itself (SVG stroke-dashoffset).
+- Kinetic/animated type in the hero ONLY — never in body copy or navigation.
+- Always respect prefers-reduced-motion.
+
+## 8. INTERNATIONALIZATION
+- Locales: ["bg","en"], defaultLocale "bg", localePrefix "as-needed"
+  (Bulgarian at "/", English at "/en/").
+- All routes under src/app/[locale]/. Add hreflang alternates in metadata.
+- Slugs use Latin transliteration (e.g. /uslugi/web-razrabotka), not Cyrillic URLs.
+
+## 9. SEO
+- Unique <title> + meta description per page via generateMetadata (BG + EN).
+- JSON-LD: Organization + LocalBusiness in root layout; Service + FAQPage on service pages;
+  Article on blog posts; BreadcrumbList on inner pages.
+- sitemap.ts (all locales/pages) + robots.ts that ALLOWS all crawlers and links the sitemap.
+- Templated OG/Twitter images (1200×630, dark bg + gradient + logo).
+- Every service is its own indexable page targeting one keyword cluster.
+
+## 10. PERFORMANCE
+- next/image for every image (WebP/AVIF, correct sizing, lazy-load below the fold).
+- Targets: LCP < 2.5s, CLS < 0.1, INP < 200ms.
+- Minimal client JS; prefer Server Components; mark "use client" only when needed.
+- Any background video (rare): muted, looped, < 5MB.
+
+## 11. ACCESSIBILITY
+- Semantic HTML, logical heading order, descriptive alt text, labeled form fields,
+  full keyboard navigation, visible focus states, AA contrast.
+
+## 12. CODE CONVENTIONS
+- TypeScript strict. Functional components. Named exports for components.
+- Files: components in src/components/{layout,sections,ui,seo}; one component per file.
+- Use the cn() helper (clsx + tailwind-merge) for conditional classes.
+- Keep data (services, pricing, nav) in src/lib data files, not inline in JSX.
+- No dead code, no unused deps, no `any` unless justified with a comment.
+- Prefer composition and small components over large monoliths.
+
+## 13. COPY & CONTENT
+- Lead with the OUTCOME (more clients / повече клиенти), not the feature.
+- Headlines are clear and literal, never clever/ambiguous.
+- One primary call-to-action per view; repeat the CTA after major sections.
+- Free "site/SEO audit" lead magnet drives email capture.
+
+## 14. HOW TO WORK (behavior)
+- Build ONE section/component per request; do not scaffold the whole site in one shot.
+- After a change, briefly state what you did and what to test (BG+EN, dark+light, mobile).
+- If a request conflicts with these rules, point it out and propose a compliant alternative
+  instead of silently breaking the rule.
+- When unsure about a design choice, re-read /docs/treasure-digital-master-plan.md before guessing.
+- For version-specific setup (especially next-intl App Router config), follow the CURRENT official
+  approach if it differs from older snippets — keep the structure/decisions, update the syntax.
+
+## 15. NEVER DO
+- No carousels/sliders. No hardcoded hex or hardcoded copy. No justified text.
+- No leva/"лв." — euros only. No English-only or Bulgarian-only gaps.
+- No low-contrast muted text on dark. No heavy unoptimized hero media.
+- No localStorage in SSR code. No native form submits. No non-Cyrillic fonts for UI text.

@@ -1,0 +1,630 @@
+{
+  "common": {
+    "siteName": "Treasure Digital",
+    "cta": "Free consultation",
+    "skipToContent": "Skip to content"
+  },
+  "cookieConsent": {
+    "title": "Cookies",
+    "description": "We use necessary cookies to run the site. Analytics cookies (Google Tag Manager) load only with your consent.",
+    "policyLink": "Cookie policy",
+    "necessaryOnly": "Necessary only",
+    "acceptAll": "Accept all"
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "home": "Go to homepage"
+  },
+  "hero": {
+    "badge": "Digital agency",
+    "headline": "We build websites, apps and campaigns that bring customers.",
+    "subheadline": "From strategy to launch — we craft digital products that grow your business, not just ones that look good.",
+    "primaryCta": "Free consultation",
+    "secondaryCta": "See our work",
+    "stats": {
+      "projects": "20+",
+      "projectsLabel": "projects delivered",
+      "clients": "50+",
+      "clientsLabel": "happy clients",
+      "experience": "5+",
+      "experienceLabel": "years of experience"
+    }
+  },
+  "services": {
+    "eyebrow": "Services",
+    "title": "The services that bring you customers",
+    "subtitle": "We focus on what moves your revenue: apps, websites and advertising that work together.",
+    "learnMore": "Learn more",
+    "items": {
+      "app": {
+        "title": "App development",
+        "description": "Fast, reliable web and desktop apps — from idea and design to production launch.",
+        "features": [
+          "Web & desktop apps",
+          "UX/UI design",
+          "Integrations & APIs",
+          "Post-launch support"
+        ]
+      },
+      "web": {
+        "title": "Web development",
+        "description": "Websites that load lightning-fast, look premium and turn visitors into customers."
+      },
+      "marketing": {
+        "title": "Digital marketing",
+        "description": "SEO, Google & Meta ads and social media — more visibility and more leads every month."
+      }
+    }
+  },
+  "whyUs": {
+    "eyebrow": "Why us",
+    "title": "A partner that thinks about your revenue",
+    "subtitle": "We don't just ship projects — we build digital assets that bring customers and pay for themselves.",
+    "items": {
+      "results": {
+        "title": "Results, not just design",
+        "description": "Every project starts from your business goal — more leads, sales and customers."
+      },
+      "fullFunnel": {
+        "title": "Everything in one place",
+        "description": "Website, app and advertising from one team — no time lost between vendors."
+      },
+      "performance": {
+        "title": "Speed & SEO by default",
+        "description": "Optimised, lightning-fast sites that Google and your customers love."
+      },
+      "partnership": {
+        "title": "A long-term partnership",
+        "description": "Support, growth and care after launch — we grow together with you."
+      }
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Portfolio",
+    "title": "Projects with measurable results",
+    "subtitle": "Every story starts with a problem, moves through a solution and ends with a number that matters to the business.",
+    "viewAll": "View all projects",
+    "readCase": "Read case study",
+    "labels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "result": "Result"
+    },
+    "items": {
+      "finpro": {
+        "title": "FinPro — cash flow & internal accounting software",
+        "category": "Web & desktop app",
+        "summary": "FinPro replaces paper archives and Excel spreadsheets with a central system for VAT, cash flow and AI invoice-to-bank reconciliation.",
+        "problem": "Everything was tracked on paper — invoice by invoice, with no clear view of who paid what and when. Messy notes and archives, no control over VAT and the company's cash flow.",
+        "solution": "FinPro tracks monthly VAT and cash flow by matching invoices against bank statements. AI reconciles paper and electronic invoices with bank transactions — see every payment status, who owes you, since when and how much has been paid. All organised in one system.",
+        "resultDetail": "After rollout, the team processes accounting with 70–80% less manual work. Every payment is traceable — from invoice issue to bank movement.",
+        "resultValue": "70–80%",
+        "resultLabel": "faster accounting workflow",
+        "highlights": [
+          "AI matching: paper, e-invoices & bank",
+          "Monthly VAT and cash flow control",
+          "Clear status for every payment and debt",
+          "Web & desktop application"
+        ],
+        "gallery": [
+          "Dashboard — financial summary, VAT and monthly control",
+          "Periods — quarterly calendar with VAT per month",
+          "Invoices — bank reconciliation and invoice management",
+          "AI matching — automatic transfer-to-invoice matching"
+        ]
+      },
+      "webShop": {
+        "title": "From brochure site to a working online store",
+        "category": "Web development + SEO",
+        "summary": "We turned a non-shoppable brochure site into a working online store with SEO — the client started receiving dozens of orders after launch.",
+        "problem": "The client had a website, but it wasn't a shop — visitors couldn't buy anything and online sales were nearly nonexistent.",
+        "solution": "We built a new website with a full online store and SEO optimisation — a structure Google can find and a checkout customers actually use.",
+        "resultDetail": "After launch, the client accumulated 50+ online sales — the site now drives real revenue, not just traffic.",
+        "resultValue": "50+",
+        "resultLabel": "online sales after launch",
+        "highlights": [
+          "Full online store with checkout",
+          "SEO optimisation from day one",
+          "Fast, modern Next.js site",
+          "Real orders after launch"
+        ],
+        "gallery": [
+          "Homepage — hero section, product categories and shopping cart",
+          "Contacts — Google Map, phone, email and live chat",
+          "SEO blog Articles — content for organic Google traffic",
+          "Product catalog — filters, pricing and Buy button"
+        ]
+      },
+      "sussi": {
+        "title": "SUSSI — information storage & sharing management system",
+        "category": "Web & desktop app",
+        "summary": "A cloud file platform — fast uploads up to 500 MB, JWT security and a full audit log for every action in the system.",
+        "problem": "Files were scattered across local folders and shared drives — slow uploads, zero traceability and a risk of unauthorised access to sensitive documents.",
+        "solution": "SUSSI centralises files in a cloud structure with drag-and-drop upload, JWT + bcrypt authentication, audit log with CSV export and brute-force protection — 5 failed attempts lock the account for 15 minutes.",
+        "resultDetail": "Teams upload files up to 500 MB with instant feedback, and every upload and access is recorded in the audit log with IP, user and metadata — cloud performance and enterprise security in one system.",
+        "resultValue": "Cloud file manager",
+        "resultLabel": "JWT security + audit log",
+        "highlights": [
+          "Drag-and-drop uploads up to 500 MB",
+          "JWT + bcrypt and brute-force protection",
+          "Audit log with export — full traceability",
+          "Granular folder-level permissions"
+        ],
+        "gallery": [
+          "Login portal — JWT + bcrypt authentication and enterprise UI",
+          "Cloud file manager — drag-and-drop upload and folder organisation",
+          "Audit log — every action with IP, user and metadata + CSV export",
+          "System settings — limits, session timeout and access permissions"
+        ]
+      }
+    }
+  },
+  "process": {
+    "eyebrow": "Process",
+    "title": "How we work",
+    "subtitle": "A clear, transparent process from the first conversation to post-launch growth — no surprises and no wasted time.",
+    "steps": {
+      "discover": {
+        "title": "Discovery",
+        "description": "We learn your business, goals and audience. A free consultation sets a clear direction from day one."
+      },
+      "plan": {
+        "title": "Strategy",
+        "description": "We build a plan: structure, features, timeline and KPIs to measure success."
+      },
+      "build": {
+        "title": "Build",
+        "description": "Design, code and integrations — with regular updates so you see progress at every stage."
+      },
+      "launch": {
+        "title": "Launch",
+        "description": "We test, optimise and go live — ready to bring customers from day one."
+      },
+      "grow": {
+        "title": "Growth",
+        "description": "Support, SEO, advertising and improvements — we grow the project together after launch."
+      }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What our clients say",
+    "items": {
+      "finproClient": {
+        "quote": "Before, everything was on paper — invoice by invoice, with no clear picture. With FinPro we finally see who owes us, what's paid and where the cash flow stands. Our accounting workflow is 70–80% faster.",
+        "name": "FinPro client",
+        "role": "Internal accounting & finance"
+      },
+      "webShopClient": {
+        "quote": "Our site was just a brochure — nobody could order anything. With the new online store and SEO we passed 50 real sales. The website finally works for the business.",
+        "name": "E-commerce client",
+        "role": "Business owner"
+      }
+    }
+  },
+  "ctaBand": {
+    "eyebrow": "Free audit",
+    "title": "Free website & SEO audit",
+    "subtitle": "Leave your email and we'll send a short audit — what's working, what's blocking customers and what to improve first.",
+    "formTitle": "Request your free audit"
+  },
+  "auditForm": {
+    "emailLabel": "Email",
+    "emailPlaceholder": "you@company.com",
+    "websiteLabel": "Website URL",
+    "websitePlaceholder": "https://example.com",
+    "optional": "optional",
+    "submit": "Send request",
+    "submitting": "Sending…",
+    "success": "Thank you! We'll be in touch soon with your audit.",
+    "error": "Something went wrong. Please try again or email office@treasure-sec.com.",
+    "errors": {
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email.",
+      "urlInvalid": "Please enter a valid URL."
+    }
+  },
+  "footer": {
+    "tagline": "Digital agency for web development, apps and advertising — we build products that bring customers.",
+    "navigation": "Navigation",
+    "legal": "Legal",
+    "contact": "Contact",
+    "legalLinks": {
+      "privacy": "Privacy policy",
+      "terms": "Terms of service",
+      "cookies": "Cookies"
+    },
+    "rights": "All rights reserved."
+  },
+  "aboutPage": {
+    "metaTitle": "About — Treasure Digital",
+    "metaDescription": "Treasure Digital — digital agency for web and desktop apps, web development and digital marketing. We build products that bring customers.",
+    "breadcrumb": "About",
+    "eyebrow": "About",
+    "title": "We build digital products that bring customers",
+    "subtitle": "Treasure Digital is a digital agency specialising in web and desktop applications, web development and digital marketing — focused on measurable results, not just pretty design.",
+    "storyTitle": "Who we are",
+    "storyP1": "Every project starts with one question: how will this bring more clients and revenue? We work with businesses in Bulgaria and internationally — from online stores and corporate sites to internal apps and ad campaigns.",
+    "storyP2": "We're not an agency that launches a site and disappears. We build, optimise and maintain — so you grow with us instead of hunting for a new vendor a month later.",
+    "valuesTitle": "How we work",
+    "valuesSubtitle": "Four principles that guide every project — from the first consultation to post-launch support.",
+    "values": {
+      "outcome": {
+        "title": "Results first",
+        "description": "Every decision — design, functionality or advertising — is judged by whether it drives enquiries, sales and growth."
+      },
+      "craft": {
+        "title": "Premium quality",
+        "description": "Fast, modern products with attention to detail — from UX to performance and SEO foundations."
+      },
+      "transparency": {
+        "title": "Transparency and clarity",
+        "description": "Clear scope, realistic timelines and regular communication — no surprises mid-project."
+      },
+      "partnership": {
+        "title": "Long-term partnership",
+        "description": "Support, development and optimisation after launch — because real results come over time."
+      }
+    },
+    "statsTitle": "By the numbers",
+    "ctaTitle": "Ready to grow?",
+    "ctaSubtitle": "Tell us about your project — we'll get back with concrete next steps and a proposal.",
+    "ctaButton": "Free consultation"
+  },
+  "blogPage": {
+    "metaTitle": "Blog — Treasure Digital",
+    "metaDescription": "Articles on web development, SEO, digital marketing and business growth — practical advice from the Treasure Digital team.",
+    "breadcrumb": "Blog",
+    "eyebrow": "Blog",
+    "title": "Articles and growth insights",
+    "subtitle": "Practical knowledge on web, SEO and advertising — so you can make better decisions for your business.",
+    "readPost": "Read article",
+    "backToBlog": "Back to blog",
+    "emptyTitle": "First articles coming soon",
+    "emptyText": "We're preparing content on web, SEO and digital marketing. In the meantime — get in touch for a free consultation."
+  },
+  "portfolioPage": {
+    "metaTitle": "Portfolio — Treasure Digital",
+    "metaDescription": "Real projects with measurable results — web apps, online stores and digital marketing.",
+    "eyebrow": "Portfolio",
+    "title": "Projects that deliver results",
+    "subtitle": "Every story starts with a problem, moves through a solution and ends with a number that matters to the business.",
+    "backToPortfolio": "Back to portfolio",
+    "highlightsTitle": "Key highlights",
+    "galleryTitle": "Project screenshots",
+    "cta": "Discuss your project"
+  },
+  "contactPage": {
+    "metaTitle": "Contact — Treasure Digital",
+    "metaDescription": "Get in touch for a free consultation. We respond within 24 hours.",
+    "eyebrow": "Contact",
+    "title": "Let's talk about your project",
+    "subtitle": "A short description of your needs is enough — we'll follow up with a concrete proposal and next steps.",
+    "promise": "We promise a response within 24 hours.",
+    "formTitle": "Send an enquiry",
+    "channelsTitle": "Or reach us directly",
+    "channelsSubtitle": "Message us on Viber, WhatsApp or call — we reply quickly.",
+    "emailNote": "Or by email:",
+    "channels": {
+      "phone": "Phone",
+      "phoneValue": "+359 88 546 2525",
+      "viber": "Viber",
+      "viberValue": "+359 88 546 2525",
+      "whatsapp": "WhatsApp",
+      "whatsappValue": "+359 88 546 2525"
+    }
+  },
+  "contactForm": {
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submit": "Send enquiry",
+    "submitting": "Sending…",
+    "success": "Thank you! We'll be in touch within 24 hours.",
+    "error": "Something went wrong. Please try again or email office@treasure-sec.com.",
+    "errors": {
+      "nameRequired": "Please enter your name.",
+      "emailRequired": "Please enter your email.",
+      "emailInvalid": "Please enter a valid email.",
+      "messageRequired": "Please enter a message."
+    }
+  },
+  "servicesHub": {
+    "metaTitle": "Services — Treasure Digital",
+    "metaDescription": "Web & desktop apps, web development, online stores, SEO, Google Ads and digital marketing — services that bring customers.",
+    "eyebrow": "Services",
+    "title": "Services that bring you customers",
+    "subtitle": "From apps and websites to advertising and SEO — we build digital solutions that grow your business.",
+    "priorityTitle": "Core services",
+    "moreTitle": "More services"
+  },
+  "servicePages": {
+    "eyebrow": "Service",
+    "breadcrumbServices": "Services",
+    "outcomeTitle": "What's the outcome",
+    "includesTitle": "What's included",
+    "caseStudyTitle": "Real example",
+    "faqTitle": "Frequently asked questions",
+    "sidebarTitle": "Ready to get started?",
+    "sidebarText": "Every project is different — contact us for a free consultation and a tailored proposal.",
+    "items": {
+      "app": {
+        "metaTitle": "Web & desktop app development — Treasure Digital",
+        "metaDescription": "Fast, reliable web and desktop apps — from idea to production. FinPro is our real-world example.",
+        "title": "Web & desktop app development",
+        "subtitle": "We build apps that automate your work and deliver clear business results — not just code.",
+        "outcome": "You get a working application that replaces manual processes, reduces errors and gives you real-time control over key operations.",
+        "includes": ["UX/UI design", "Web & desktop apps", "Integrations & APIs", "Testing & QA", "Production deployment", "Post-launch support"],
+        "caseStudy": "FinPro — our cash flow and internal accounting software. Replaced paper archives with AI invoice-to-bank reconciliation — 70–80% faster processing.",
+        "ctaTitle": "Have an app idea? Let's discuss it.",
+        "faq": [
+          { "question": "What apps do you build?", "answer": "We focus on web and desktop apps — internal systems, B2B platforms, dashboards and business tools. We don't build native mobile apps." },
+          { "question": "How long does a project take?", "answer": "Depends on scope — an MVP can be ready in 6–10 weeks, complex systems take 3–6 months. You'll get a clear timeline after consultation." },
+          { "question": "Do you provide post-launch support?", "answer": "Yes — we offer support, updates and feature development after production launch." }
+        ]
+      },
+      "web": {
+        "metaTitle": "Web development — Treasure Digital",
+        "metaDescription": "Premium Next.js websites — fast, SEO-ready and built for conversions. Real example: online store with dozens of orders.",
+        "title": "Web development",
+        "subtitle": "Websites that load lightning-fast, look premium and turn visitors into customers.",
+        "outcome": "You get a modern, fast site optimised for Google and conversions — ready to drive enquiries and sales from day one.",
+        "includes": ["UX/UI design", "Next.js development", "SEO foundation", "Responsive design", "Forms & integrations", "Performance optimisation"],
+        "caseStudy": "We turned a non-shoppable brochure site into a working online store with SEO — the client started receiving dozens of orders after launch.",
+        "ctaTitle": "Want a site that brings customers? Start here.",
+        "faq": [
+          { "question": "What technology do you use?", "answer": "We use Next.js and TypeScript — a modern stack with excellent SEO, speed and scalability." },
+          { "question": "Does it include SEO?", "answer": "Yes — every web project includes an SEO foundation: structure, meta tags, performance and technical optimisation." },
+          { "question": "How long does a website take?", "answer": "A presentation site — 2–4 weeks. More complex projects with custom features — 4–8 weeks." }
+        ]
+      },
+      "marketing": {
+        "metaTitle": "Digital marketing — Treasure Digital",
+        "metaDescription": "SEO, Google Ads, Meta ads and social media — more visibility, more leads every month.",
+        "title": "Digital marketing",
+        "subtitle": "Advertising and SEO that drive real enquiries — not just impressions and clicks.",
+        "outcome": "You get a measurable digital strategy with clear KPIs — more traffic, more leads and a lower cost per enquiry.",
+        "includes": ["SEO strategy", "Google Ads", "Meta / Facebook Ads", "Social media", "Conversion tracking", "Monthly reports"],
+        "ctaTitle": "Want more customers from advertising? Let's talk.",
+        "faq": [
+          { "question": "Do you do ads only or SEO too?", "answer": "Both — we combine SEO for long-term organic traffic and paid ads for fast results." },
+          { "question": "What's the minimum budget?", "answer": "Budget depends on your goals and scope — we'll propose a plan after a free consultation." },
+          { "question": "How do you measure results?", "answer": "We set up conversion tracking, monthly reports and KPIs — leads, cost per lead, ROAS." }
+        ]
+      },
+      "eshop": {
+        "metaTitle": "Online store / eCommerce — Treasure Digital",
+        "metaDescription": "eCommerce with Next.js — fast online stores that convert visitors into buyers.",
+        "title": "Online store / eCommerce",
+        "subtitle": "We build online stores that sell — with fast checkout, SEO and premium UX.",
+        "outcome": "You get a working eCommerce site ready to accept orders online and grow with your business.",
+        "includes": ["Product catalog", "Shopping cart & checkout", "Payment integrations", "Product SEO", "Admin panel", "Performance optimisation"],
+        "caseStudy": "We turned a site with no purchase option into a working store — the client started receiving dozens of orders.",
+        "ctaTitle": "Want an online store? Start with a consultation.",
+        "faq": [
+          { "question": "Can I manage products myself?", "answer": "Yes — we build an admin panel or integrate a CMS so you can add and edit products without a developer." },
+          { "question": "What payments do you support?", "answer": "We integrate Stripe, PayPal and local payment providers based on your needs." },
+          { "question": "Does it include product SEO?", "answer": "Yes — product pages, categories and technical SEO are part of every eCommerce project." }
+        ]
+      },
+      "seo": {
+        "metaTitle": "SEO optimisation — Treasure Digital",
+        "metaDescription": "Technical and content SEO — more organic traffic and better Google rankings.",
+        "title": "SEO optimisation",
+        "subtitle": "We help Google find and rank your site — for more organic customers without ad spend.",
+        "outcome": "You get better search visibility, more organic traffic and more enquiries from Google.",
+        "includes": ["Technical SEO audit", "On-page optimisation", "Keyword research", "Content strategy", "Core Web Vitals", "Monthly reports"],
+        "ctaTitle": "Want more traffic from Google? Start with an audit.",
+        "faq": [
+          { "question": "How long does SEO take?", "answer": "First results appear after 2–3 months, significant growth — after 6–12 months of consistent work." },
+          { "question": "Do you work with new sites?", "answer": "Yes — SEO is built into every web project. We also offer SEO for existing sites." },
+          { "question": "What's included in an SEO audit?", "answer": "Technical SEO, on-page, competitor analysis, keyword opportunities and a concrete action plan." }
+        ]
+      },
+      "googleAds": {
+        "metaTitle": "Google Ads — Treasure Digital",
+        "metaDescription": "Google Ads campaigns that drive enquiries — structured, optimised and with clear ROI.",
+        "title": "Google Ads",
+        "subtitle": "Google advertising that brings real enquiries — not just clicks and wasted budget.",
+        "outcome": "You get optimised Google Ads campaigns with a lower cost per lead and clear reporting.",
+        "includes": ["Campaign setup", "Keyword research", "Ad copy", "Landing pages", "Conversion tracking", "Optimisation & reports"],
+        "caseStudy": "Restructured Google Ads campaigns — 38% lower cost per enquiry.",
+        "ctaTitle": "Want more enquiries from Google? Let's talk.",
+        "faq": [
+          { "question": "What's the minimum ad budget?", "answer": "We recommend a budget aligned with your goals — we'll define it together in consultation." },
+          { "question": "How quickly will I see results?", "answer": "First enquiries can come within days of launch; optimisation continues over months." },
+          { "question": "Do you set up conversion tracking?", "answer": "Yes — tracking is mandatory for every campaign so you know exactly what works." }
+        ]
+      },
+      "metaAds": {
+        "metaTitle": "Facebook / Meta ads — Treasure Digital",
+        "metaDescription": "Meta and Facebook Ads campaigns — reach the right audience and generate leads.",
+        "title": "Facebook / Meta ads",
+        "subtitle": "Facebook and Instagram advertising that reaches your audience and generates enquiries.",
+        "outcome": "You get targeted Meta campaigns with creative, landing pages and conversion tracking.",
+        "includes": ["Audience research", "Ad creative", "Campaign setup", "A/B testing", "Retargeting", "Monthly reports"],
+        "ctaTitle": "Want more customers from Facebook and Instagram?",
+        "faq": [
+          { "question": "Do you run Instagram ads?", "answer": "Yes — Meta Ads covers Facebook, Instagram, Messenger and Audience Network." },
+          { "question": "Who creates the creative?", "answer": "We can create ad copy and visuals, or work with your existing materials." },
+          { "question": "What is retargeting?", "answer": "We show ads to people who already visited your site — higher conversion at lower cost." }
+        ]
+      },
+      "social": {
+        "metaTitle": "Social media management — Treasure Digital",
+        "metaDescription": "Social media management — consistent presence, content and audience engagement.",
+        "title": "Social media management",
+        "subtitle": "We manage your social profiles — content, scheduling and audience engagement.",
+        "outcome": "You get an active, professional social presence without spending time on it every day.",
+        "includes": ["Content calendar", "Post creation", "Community management", "Analytics reports", "Brand guidelines", "Hashtag strategy"],
+        "ctaTitle": "Want a stronger social media presence?",
+        "faq": [
+          { "question": "Which platforms do you cover?", "answer": "Facebook, Instagram, LinkedIn and TikTok — depending on where your audience is." },
+          { "question": "How many posts per month?", "answer": "Usually 8–12 posts per month, but the plan adapts to your goals and platform." },
+          { "question": "Does it include paid ads?", "answer": "Social management is organic. Meta Ads is a separate service we can combine." }
+        ]
+      }
+    }
+  },
+  "legalPages": {
+    "breadcrumb": "Legal information",
+    "lastUpdatedLabel": "Last updated",
+    "items": {
+      "privacy": {
+        "metaTitle": "Privacy Policy — Treasure Digital",
+        "metaDescription": "How Treasure Digital collects, uses and protects your personal data under GDPR.",
+        "breadcrumb": "Privacy",
+        "eyebrow": "Legal information",
+        "title": "Privacy Policy",
+        "lastUpdated": "24 June 2026",
+        "sections": [
+          {
+            "title": "1. Data controller",
+            "paragraphs": [
+              "The data controller is Treasure Digital (\"we\", \"us\"). Privacy enquiries: office@treasure-sec.com.",
+              "This policy describes how we process data when you visit treasuredigital.bg, use contact or audit forms, or communicate with us for business purposes."
+            ]
+          },
+          {
+            "title": "2. Data we collect",
+            "paragraphs": [
+              "Data you provide voluntarily: name, email, phone (if provided), message content, website URL (audit requests), selected service.",
+              "Technical data: IP address, browser type, device, referrer, pages visited — via cookies and analytics (see Cookie Policy) when you have given consent."
+            ]
+          },
+          {
+            "title": "3. Purposes and legal basis",
+            "paragraphs": [
+              "Responding to enquiries and quotes — pre-contractual steps or legitimate interest (GDPR Art. 6(1)(b) and (f)).",
+              "Site improvement and marketing — only with consent for analytics/marketing cookies (Art. 6(1)(a)).",
+              "Legal compliance — accounting and contract data when you become a client."
+            ]
+          },
+          {
+            "title": "4. Retention",
+            "paragraphs": [
+              "Form enquiries: up to 24 months after last contact, unless you become a client or request earlier deletion.",
+              "Contract and financial records: as required by Bulgarian law (typically 5–10 years)."
+            ]
+          },
+          {
+            "title": "5. Third parties",
+            "paragraphs": [
+              "We use processors for hosting (Vercel), email (Resend), analytics (Google — with consent) and CMS (Sanity). GDPR agreements are in place.",
+              "We do not sell personal data. Disclosure only when legally required or with your explicit consent."
+            ]
+          },
+          {
+            "title": "6. Your rights",
+            "paragraphs": [
+              "You have the right to access, rectify, erase, restrict, port and object to processing, and to withdraw consent at any time.",
+              "Complaint to the Bulgarian Commission for Personal Data Protection (CPDP): www.cpdp.bg.",
+              "Requests: office@treasure-sec.com — we respond within 30 days."
+            ]
+          },
+          {
+            "title": "7. Security",
+            "paragraphs": [
+              "We apply technical and organisational measures: HTTPS, limited access, data minimisation. No online method is 100% secure; we make reasonable efforts to protect your data."
+            ]
+          }
+        ]
+      },
+      "terms": {
+        "metaTitle": "Terms of Use — Treasure Digital",
+        "metaDescription": "Terms of use for treasuredigital.bg and Treasure Digital services.",
+        "breadcrumb": "Terms",
+        "eyebrow": "Legal information",
+        "title": "Terms of Use",
+        "lastUpdated": "24 June 2026",
+        "sections": [
+          {
+            "title": "1. Scope",
+            "paragraphs": [
+              "These terms govern use of the website treasuredigital.bg (\"the Site\"), operated by Treasure Digital.",
+              "Using the Site means you accept these terms. If you do not agree, please do not use the Site."
+            ]
+          },
+          {
+            "title": "2. Services and offers",
+            "paragraphs": [
+              "Information on the Site — services, portfolio, blog — is for information only and does not constitute a binding offer unless explicitly agreed in writing.",
+              "Specific scope, timelines and pricing are defined in an individual contract or quote after consultation."
+            ]
+          },
+          {
+            "title": "3. Intellectual property",
+            "paragraphs": [
+              "Site content — text, design, logo, code — is protected. Copying, distribution or modification without written consent is prohibited except for personal viewing.",
+              "Client and partner trademarks belong to their respective owners."
+            ]
+          },
+          {
+            "title": "4. Limitation of liability",
+            "paragraphs": [
+              "The Site is provided \"as is\". We do not guarantee uninterrupted access or error-free operation. We are not liable for indirect damages from use of the Site.",
+              "External links lead to third-party sites — we are not responsible for their content."
+            ]
+          },
+          {
+            "title": "5. Governing law",
+            "paragraphs": [
+              "Bulgarian law applies. Disputes — competent courts in the Republic of Bulgaria, unless mandatory EU/BG rules provide otherwise.",
+              "Questions: office@treasure-sec.com."
+            ]
+          }
+        ]
+      },
+      "cookies": {
+        "metaTitle": "Cookie Policy — Treasure Digital",
+        "metaDescription": "What cookies treasuredigital.bg uses, why, and how to manage your preferences.",
+        "breadcrumb": "Cookies",
+        "eyebrow": "Legal information",
+        "title": "Cookie Policy",
+        "lastUpdated": "24 June 2026",
+        "sections": [
+          {
+            "title": "1. What cookies are",
+            "paragraphs": [
+              "Cookies are small text files stored on your device. They help with functionality, statistics and (with consent) marketing."
+            ]
+          },
+          {
+            "title": "2. Cookies we use",
+            "paragraphs": [
+              "Strictly necessary: session, language (next-intl), theme (dark/light) — required for the Site to work.",
+              "Analytics (Google Analytics via GTM): only after consent — visits, pages, traffic source.",
+              "Marketing (Google Ads, Meta Pixel via GTM): only after consent — for ad measurement when enabled."
+            ]
+          },
+          {
+            "title": "3. Managing preferences",
+            "paragraphs": [
+              "You can refuse or withdraw consent via browser settings or a future cookie banner on the Site.",
+              "Blocking necessary cookies may affect functionality (e.g. remembering language)."
+            ]
+          },
+          {
+            "title": "4. Duration",
+            "paragraphs": [
+              "Session cookies — until browser close. Persistent — 30 days to 24 months depending on type and third-party settings.",
+              "We publish updates to this policy on this page with a new date."
+            ]
+          },
+          {
+            "title": "5. Contact",
+            "paragraphs": [
+              "Cookie and privacy questions: office@treasure-sec.com."
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
