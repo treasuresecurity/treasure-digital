@@ -7,6 +7,7 @@ import {
   getServiceBySlug,
   type ServiceKey,
 } from "@/lib/services";
+import { DirectAnswerBlock } from "@/components/sections/direct-answer";
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
 import { ServiceRelatedLinks } from "@/components/sections/internal-links";
 import {
@@ -101,6 +102,10 @@ export default async function ServicePage({
         title={title}
         subtitle={subtitle}
       />
+
+      <DirectAnswerBlock title={t("summaryTitle")} className="mt-8">
+        {t(`items.${key}.directAnswer`)}
+      </DirectAnswerBlock>
 
       <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-3">
         <div className="flex flex-col gap-10 lg:col-span-2">

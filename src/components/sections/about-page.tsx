@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { DirectAnswerBlock } from "@/components/sections/direct-answer";
 import { NapBlock } from "@/components/layout/nap-block";
 import { aboutValues } from "@/lib/about";
 import { buttonVariants } from "@/components/ui/button";
@@ -42,6 +43,10 @@ export async function AboutPageContent() {
       </header>
 
       <section className="mt-16 flex flex-col gap-6 border-y border-border py-16">
+        <DirectAnswerBlock title={t("summaryTitle")}>
+          {t("directAnswer")}
+        </DirectAnswerBlock>
+
         <h2 className="font-display text-h2 font-bold tracking-tight">
           {t("storyTitle")}
         </h2>

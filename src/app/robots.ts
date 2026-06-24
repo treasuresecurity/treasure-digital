@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getSiteUrl } from "@/lib/site";
 
+/** AI crawlers are allowed by default — only /api/ is disallowed. */
 export default function robots(): MetadataRoute.Robots {
   const siteUrl = getSiteUrl();
 

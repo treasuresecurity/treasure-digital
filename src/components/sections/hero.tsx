@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { DirectAnswerBlock } from "@/components/sections/direct-answer";
 import { buttonVariants } from "@/components/ui/button";
 import { InfinityMarkFallback } from "@/components/ui/infinity-mark-fallback";
 
@@ -16,6 +17,7 @@ const InfinityMark = dynamic(
 
 export async function Hero() {
   const t = await getTranslations("hero");
+  const th = await getTranslations("homePage");
 
   const stats = [
     { value: t("stats.projects"), label: t("stats.projectsLabel") },
@@ -43,6 +45,10 @@ export async function Hero() {
           </h1>
 
           <p className="measure text-body text-text-muted">{t("subheadline")}</p>
+
+          <DirectAnswerBlock title={th("summaryTitle")} className="w-full">
+            {th("aeoSummary")}
+          </DirectAnswerBlock>
 
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link href="/kontakti" className={buttonVariants({ size: "lg" })}>

@@ -4,6 +4,12 @@ export function ResourceHints() {
     <>
       <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      <link
+        rel="alternate"
+        type="text/plain"
+        href="/llms.txt"
+        title="LLM site summary"
+      />
     </>
   );
 }
