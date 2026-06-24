@@ -1,7 +1,18 @@
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { buttonVariants } from "@/components/ui/button";
-import { InfinityMark } from "@/components/ui/infinity-mark";
+import { InfinityMarkFallback } from "@/components/ui/infinity-mark-fallback";
+
+const InfinityMark = dynamic(
+  () =>
+    import("@/components/ui/infinity-mark").then((mod) => mod.InfinityMark),
+  {
+    loading: () => (
+      <InfinityMarkFallback className="h-auto w-full max-w-md" />
+    ),
+  },
+);
 
 export async function Hero() {
   const t = await getTranslations("hero");

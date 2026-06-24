@@ -1,18 +1,14 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-
-// The brand infinity loop, drawn as a single continuous figure-eight stroke.
-// Animates via stroke pathLength (master-plan §3.2 / §7). Decorative only.
-const PATH =
-  "M100,60 C100,20 40,20 40,60 C40,100 100,100 100,60 C100,20 160,20 160,60 C160,100 100,100 100,60";
+import { INFINITY_MARK_PATH, INFINITY_MARK_VIEWBOX } from "@/components/ui/infinity-mark-path";
 
 export function InfinityMark({ className }: { className?: string }) {
   const reduce = useReducedMotion();
 
   return (
     <svg
-      viewBox="0 0 200 120"
+      viewBox={INFINITY_MARK_VIEWBOX}
       fill="none"
       className={className}
       role="presentation"
@@ -26,7 +22,7 @@ export function InfinityMark({ className }: { className?: string }) {
         </linearGradient>
       </defs>
       <motion.path
-        d={PATH}
+        d={INFINITY_MARK_PATH}
         stroke="url(#td-infinity)"
         strokeWidth={11}
         strokeLinecap="round"

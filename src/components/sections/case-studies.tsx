@@ -106,6 +106,7 @@ function FeaturedCaseCard({
         category={category}
         resultValue={resultValue}
         resultLabel={resultLabel}
+        priority
         className="min-h-52 border-b border-border lg:min-h-0 lg:border-b-0 lg:border-r"
       />
 

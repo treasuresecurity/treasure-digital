@@ -29,6 +29,7 @@ export async function BlogPostCard({
             src={coverUrl}
             alt={post.title}
             fill
+            loading="lazy"
             className="object-cover transition-transform duration-300 ease-brand group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />

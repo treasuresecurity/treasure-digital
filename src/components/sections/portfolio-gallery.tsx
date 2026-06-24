@@ -49,7 +49,8 @@ export function PortfolioGallery({
                     alt={captions[index] ?? title}
                     width={image.width}
                     height={image.height}
-                    quality={95}
+                    quality={85}
+                    loading="lazy"
                     className="h-auto w-full object-contain"
                     sizes={
                       isExpanded

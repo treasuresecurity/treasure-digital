@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
+import { ResourceHints } from "@/components/seo/resource-hints";
 import { GoogleTagManager } from "@/components/seo/google-tag-manager";
 import { CookieConsentBanner } from "@/components/layout/cookie-consent";
 import { routing } from "@/i18n/routing";
@@ -19,6 +20,8 @@ const unbounded = Unbounded({
   variable: "--font-unbounded",
   subsets: ["latin", "cyrillic"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 // Body / UI font — clean, legible in BG + EN.
@@ -26,6 +29,7 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin", "cyrillic"],
   display: "swap",
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -66,6 +70,9 @@ export default async function LocaleLayout({
       suppressHydrationWarning
       className={`${unbounded.variable} ${inter.variable} h-full antialiased`}
     >
+      <head>
+        <ResourceHints />
+      </head>
       <body className="min-h-full">
         <GoogleTagManager />
         <OrganizationJsonLd />
