@@ -1,6 +1,7 @@
+import { BUSINESS } from "@/lib/business";
 import { getSiteUrl } from "@/lib/site";
 
-export function ArticleJsonLd({
+export function BlogPostingJsonLd({
   title,
   description,
   url,
@@ -14,27 +15,37 @@ export function ArticleJsonLd({
   imageUrl?: string;
 }) {
   const siteUrl = getSiteUrl();
+  const orgId = `${siteUrl}/#organization`;
+  const founderId = `${siteUrl}/#founder`;
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: title,
     description,
     url,
     datePublished: publishedAt,
+    dateModified: publishedAt,
+    inLanguage: url.includes("/en/") ? "en" : "bg",
     author: {
-      "@type": "Organization",
-      name: "Treasure Digital",
+      "@type": "Person",
+      "@id": founderId,
+      name: BUSINESS.founderName,
       url: siteUrl,
     },
     publisher: {
       "@type": "Organization",
-      name: "Treasure Digital",
+      "@id": orgId,
+      name: BUSINESS.displayName,
       url: siteUrl,
       logo: {
         "@type": "ImageObject",
         url: `${siteUrl}/logo-dark.png`,
       },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": url,
     },
     ...(imageUrl ? { image: [imageUrl] } : {}),
   };
@@ -46,3 +57,6 @@ export function ArticleJsonLd({
     />
   );
 }
+
+/** @deprecated use BlogPostingJsonLd */
+export const ArticleJsonLd = BlogPostingJsonLd;

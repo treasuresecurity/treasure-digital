@@ -8,8 +8,11 @@ import {
 } from "@/lib/portfolio";
 import { buttonVariants } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/sections/portfolio-gallery";
-import { cn } from "@/lib/utils";
+import { PortfolioJsonLd } from "@/components/seo/portfolio-json-ld";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
+import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/metadata";
+import { cn } from "@/lib/utils";
 
 export function generateStaticParams() {
   return getAllCaseSlugs().map((slug) => ({ slug }));
@@ -46,13 +49,37 @@ export default async function CaseStudyPage({
 
   const t = await getTranslations("caseStudies");
   const tp = await getTranslations("portfolioPage");
+  const tn = await getTranslations("nav");
   const highlights = t.raw(`items.${item.key}.highlights`) as string[];
   const galleryCaptions = item.gallery
     ? (t.raw(`items.${item.key}.gallery`) as string[])
     : null;
 
+  const title = t(`items.${item.key}.title`);
+  const summary = t(`items.${item.key}.summary`);
+  const category = t(`items.${item.key}.category`);
+  const caseUrl = absoluteUrl(`/portfolio/${slug}`, locale);
+
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[
+          { name: tn("home"), path: "" },
+          { name: tn("portfolio"), path: "/portfolio" },
+          { name: title, path: `/portfolio/${slug}` },
+        ]}
+      />
+      {item.gallery && galleryCaptions && (
+        <PortfolioJsonLd
+          name={title}
+          description={summary}
+          url={caseUrl}
+          category={category}
+          images={item.gallery}
+          imageAlts={galleryCaptions}
+        />
+      )}
       <Link
         href="/portfolio"
         className="inline-flex items-center gap-2 text-small font-medium text-text-muted transition-colors hover:text-text"

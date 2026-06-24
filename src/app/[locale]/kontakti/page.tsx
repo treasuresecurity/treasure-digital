@@ -2,6 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm, ContactChannels } from "@/components/sections/contact-form";
 import { SITE_EMAIL, SITE_MAILTO } from "@/lib/contact";
 import { buildPageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 
 export async function generateMetadata({
   params,
@@ -26,9 +27,17 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contactPage");
+  const tn = await getTranslations("nav");
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[
+          { name: tn("home"), path: "" },
+          { name: tn("contact"), path: "/kontakti" },
+        ]}
+      />
       <header className="measure flex flex-col gap-4">
         <span className="inline-flex items-center gap-2 text-small font-medium uppercase tracking-wider text-text-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />

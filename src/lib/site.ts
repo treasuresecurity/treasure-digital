@@ -4,8 +4,15 @@ import { getAllLegalSlugs } from "@/lib/legal";
 import { getAllServiceSlugs } from "@/lib/services";
 
 export function getSiteUrl() {
-  const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treasure-digital.com";
-  return url.replace(/\/$/, "");
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL;
+  if (fromEnv) return fromEnv.replace(/\/$/, "");
+
+  const vercelProduction = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+  if (vercelProduction) {
+    return `https://${vercelProduction.replace(/\/$/, "")}`;
+  }
+
+  return "https://treasure-digital.com";
 }
 
 /** Path for a locale with next-intl `localePrefix: "as-needed"`. */

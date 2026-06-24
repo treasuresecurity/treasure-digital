@@ -10,7 +10,8 @@ import { getAllPostSlugs } from "@/sanity/queries";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPaths = getAllSitemapPaths();
   const postSlugs = await getAllPostSlugs();
-  const blogPaths = postSlugs.map(({ slug }) => `/blog/${slug}`);
+  const uniqueBlogSlugs = [...new Set(postSlugs.map(({ slug }) => slug))];
+  const blogPaths = uniqueBlogSlugs.map((slug) => `/blog/${slug}`);
   const paths = [...staticPaths, ...blogPaths];
   const lastModified = new Date();
 

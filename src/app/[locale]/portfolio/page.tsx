@@ -5,6 +5,7 @@ import { Link } from "@/i18n/navigation";
 import { PortfolioCover } from "@/components/layout/portfolio-cover";
 import { portfolioCases } from "@/lib/portfolio";
 import { buildPageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 
 export async function generateMetadata({
   params,
@@ -30,9 +31,17 @@ export default async function PortfolioPage({
   setRequestLocale(locale);
   const t = await getTranslations("portfolioPage");
   const tc = await getTranslations("caseStudies");
+  const tn = await getTranslations("nav");
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[
+          { name: tn("home"), path: "" },
+          { name: tn("portfolio"), path: "/portfolio" },
+        ]}
+      />
       <header className="measure flex flex-col gap-4">
         <span className="inline-flex items-center gap-2 text-small font-medium uppercase tracking-wider text-text-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />

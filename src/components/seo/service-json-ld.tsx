@@ -1,3 +1,5 @@
+import { BUSINESS } from "@/lib/business";
+import { getSiteUrl } from "@/lib/site";
 import type { ServiceKey } from "@/lib/services";
 
 interface FaqItem {
@@ -5,26 +7,49 @@ interface FaqItem {
   answer: string;
 }
 
+const SERVICE_TYPES: Record<ServiceKey, string> = {
+  app: "Web Application Development",
+  web: "Website Design and Development",
+  marketing: "Digital Marketing",
+  eshop: "E-commerce Development",
+  seo: "Search Engine Optimization",
+  googleAds: "Google Ads Management",
+  metaAds: "Meta Ads Management",
+  social: "Social Media Management",
+};
+
 export function ServiceJsonLd({
+  serviceKey,
   name,
   description,
   url,
   faq,
 }: {
+  serviceKey: ServiceKey;
   name: string;
   description: string;
   url: string;
   faq: FaqItem[];
 }) {
+  const siteUrl = getSiteUrl();
+  const orgId = `${siteUrl}/#organization`;
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
     name,
     description,
     url,
+    serviceType: SERVICE_TYPES[serviceKey],
+    areaServed: BUSINESS.areaServed.map((place) => ({
+      "@type": "Place",
+      name: place,
+    })),
     provider: {
       "@type": "Organization",
-      name: "Treasure Digital",
+      "@id": orgId,
+      name: BUSINESS.displayName,
+      url: siteUrl,
     },
   };
 

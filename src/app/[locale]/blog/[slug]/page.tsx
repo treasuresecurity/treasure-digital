@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { PostBody } from "@/components/sections/post-body";
-import { ArticleJsonLd } from "@/components/seo/article-json-ld";
+import { BlogPostingJsonLd } from "@/components/seo/blog-posting-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { buildPageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
@@ -65,7 +65,7 @@ export default async function BlogPostPage({
           { name: post.title, path: `/blog/${slug}` },
         ]}
       />
-      <ArticleJsonLd
+      <BlogPostingJsonLd
         title={post.title}
         description={post.excerpt}
         url={articleUrl}

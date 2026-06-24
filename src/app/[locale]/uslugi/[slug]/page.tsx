@@ -9,6 +9,7 @@ import {
 } from "@/lib/services";
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
 import { ServiceJsonLd } from "@/components/seo/service-json-ld";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { absoluteUrl } from "@/lib/site";
 import { buildPageMetadata } from "@/lib/metadata";
 
@@ -47,6 +48,7 @@ export default async function ServicePage({
 
   const t = await getTranslations("servicePages");
   const tc = await getTranslations("common");
+  const tn = await getTranslations("nav");
   const key = service.key as ServiceKey;
 
   const includes = t.raw(`items.${key}.includes`) as string[];
@@ -58,7 +60,16 @@ export default async function ServicePage({
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[
+          { name: tn("home"), path: "" },
+          { name: t("breadcrumbServices"), path: "/uslugi" },
+          { name: title, path: `/uslugi/${slug}` },
+        ]}
+      />
       <ServiceJsonLd
+        serviceKey={key}
         name={title}
         description={subtitle}
         url={baseUrl}

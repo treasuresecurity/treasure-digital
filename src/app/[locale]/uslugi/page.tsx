@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { PortfolioCover } from "@/components/layout/portfolio-cover";
 import { allServices } from "@/lib/services";
 import { buildPageMetadata } from "@/lib/metadata";
+import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 
 export async function generateMetadata({
   params,
@@ -30,12 +31,20 @@ export default async function ServicesHubPage({
   const t = await getTranslations("servicesHub");
   const ts = await getTranslations("services");
   const tp = await getTranslations("servicePages");
+  const tn = await getTranslations("nav");
 
   const priority = allServices.filter((s) => s.priority);
   const rest = allServices.filter((s) => !s.priority);
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
+      <BreadcrumbJsonLd
+        locale={locale}
+        items={[
+          { name: tn("home"), path: "" },
+          { name: tn("services"), path: "/uslugi" },
+        ]}
+      />
       <header className="measure flex flex-col gap-4">
         <span className="inline-flex items-center gap-2 text-small font-medium uppercase tracking-wider text-text-muted">
           <span className="h-1.5 w-1.5 rounded-full bg-accent" />
