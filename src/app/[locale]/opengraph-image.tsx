@@ -46,7 +46,7 @@ export default function OpenGraphImage() {
             Websites, apps and campaigns that bring customers
           </p>
           <p style={{ fontSize: 28, color: "#9AA7BD", margin: 0 }}>
-            treasuredigital.bg
+            treasure-digital.com
           </p>
         </div>
         <div

@@ -9,6 +9,7 @@ import {
 } from "@/lib/services";
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
 import { ServiceJsonLd } from "@/components/seo/service-json-ld";
+import { absoluteUrl } from "@/lib/site";
 
 export function generateStaticParams() {
   return getAllServiceSlugs().map((slug) => ({ slug }));
@@ -50,10 +51,7 @@ export default async function ServicePage({
 
   const title = t(`items.${key}.title`);
   const subtitle = t(`items.${key}.subtitle`);
-  const baseUrl =
-    locale === "bg"
-      ? `https://treasuredigital.bg/uslugi/${slug}`
-      : `https://treasuredigital.bg/en/uslugi/${slug}`;
+  const baseUrl = absoluteUrl(`/uslugi/${slug}`, locale);
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">

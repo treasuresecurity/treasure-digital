@@ -4,7 +4,7 @@ import { getAllLegalSlugs } from "@/lib/legal";
 import { getAllServiceSlugs } from "@/lib/services";
 
 export function getSiteUrl() {
-  const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treasuredigital.bg";
+  const url = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treasure-digital.com";
   return url.replace(/\/$/, "");
 }
 
