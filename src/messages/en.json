@@ -308,6 +308,9 @@
     "subtitle": "Practical knowledge on web, SEO and advertising — so you can make better decisions for your business.",
     "readPost": "Read article",
     "backToBlog": "Back to blog",
+    "readingTime": "{minutes} min read",
+    "tableOfContents": "Table of contents",
+    "updated": "Updated",
     "emptyTitle": "First articles coming soon",
     "emptyText": "We're preparing content on web, SEO and digital marketing. In the meantime — get in touch for a free consultation."
   },

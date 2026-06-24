@@ -20,8 +20,8 @@ export async function BlogPostCard({
       href={`/blog/${post.slug}`}
       className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface transition-all duration-300 ease-brand hover:-translate-y-1"
     >
-      <div className="relative aspect-video overflow-hidden border-b border-border bg-surface-2">
-        {post.cover ? (
+      {post.cover ? (
+        <div className="relative aspect-video overflow-hidden border-b border-border bg-surface-2">
           <Image
             src={post.cover}
             alt={blogCoverAlt(post.title)}
@@ -30,16 +30,20 @@ export async function BlogPostCard({
             className="object-cover transition-transform duration-300 ease-brand group-hover:scale-[1.03]"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
-        ) : (
-          <div className="absolute inset-0 opacity-25 [background:var(--gradient-brand)]" />
-        )}
-        <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-border bg-bg/90 px-3 py-1 text-small text-text-muted backdrop-blur-sm">
-          <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-          {post.category}
-        </span>
-      </div>
+          <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-border bg-bg/90 px-3 py-1 text-small text-text-muted backdrop-blur-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            {post.category}
+          </span>
+        </div>
+      ) : null}
 
-      <div className="flex flex-1 flex-col gap-4 p-6">
+      <div className={`flex flex-1 flex-col gap-4 p-6 ${post.cover ? "" : "pt-6"}`}>
+        {!post.cover ? (
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface-2 px-3 py-1 text-small text-text-muted">
+            <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+            {post.category}
+          </span>
+        ) : null}
         <time
           dateTime={post.publishedAt}
           className="inline-flex items-center gap-1.5 text-small text-text-muted"

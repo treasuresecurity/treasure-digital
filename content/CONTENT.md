@@ -78,6 +78,8 @@ Body copy. Left-aligned, outcome-first. No justified text.
 3. Push — Vercel rebuilds static pages automatically.
 4. Optional: submit updated sitemap in Google Search Console.
 
+**Rendering pipeline:** see [`docs/BLOG-RENDERING.md`](../docs/BLOG-RENDERING.md) for MDX plugins, components (`Callout`, `Figure`), TOC, and styling rules.
+
 ## RSS feeds
 
 - Bulgarian: `https://treasure-digital.com/feed.xml`

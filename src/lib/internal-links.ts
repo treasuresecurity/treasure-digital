@@ -15,17 +15,11 @@ export const PORTFOLIO_SLUGS: Record<PortfolioCase["key"], string> = {
 };
 
 export const serviceToBlog: Partial<Record<ServiceKey, string[]>> = {
-  web: ["online-magazin-seo-konversii-navodnik"],
-  eshop: ["online-magazin-seo-konversii-navodnik"],
-  seo: [
-    "tekhnichesko-seo-navodnik-bulgaria-2026",
-    "lokalno-seo-bulgaria-google-business-profile",
-  ],
-  marketing: [
-    "online-magazin-seo-konversii-navodnik",
-    "lokalno-seo-bulgaria-google-business-profile",
-  ],
-  googleAds: ["online-magazin-seo-konversii-navodnik"],
+  web: ["onlain-magazin"],
+  eshop: ["onlain-magazin"],
+  seo: ["onlain-magazin"],
+  marketing: ["onlain-magazin"],
+  googleAds: ["onlain-magazin"],
 };
 
 export const portfolioToServices: Record<PortfolioCase["key"], ServiceKey[]> = {
@@ -35,9 +29,7 @@ export const portfolioToServices: Record<PortfolioCase["key"], ServiceKey[]> = {
 };
 
 export const blogToServices: Record<string, ServiceKey[]> = {
-  "tekhnichesko-seo-navodnik-bulgaria-2026": ["seo", "web"],
-  "online-magazin-seo-konversii-navodnik": ["eshop", "web", "seo"],
-  "lokalno-seo-bulgaria-google-business-profile": ["seo", "marketing"],
+  "onlain-magazin": ["eshop", "web", "seo", "marketing"],
 };
 
 export function getPortfolioSlugForService(key: ServiceKey) {

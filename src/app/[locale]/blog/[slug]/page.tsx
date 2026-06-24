@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { ArrowLeft, CalendarDays } from "lucide-react";
+import { ArrowLeft, CalendarDays, Clock3 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { BlogRelatedLinks } from "@/components/sections/internal-links";
+import { BlogTableOfContents } from "@/components/sections/blog-table-of-contents";
 import { BlogPostingJsonLd } from "@/components/seo/blog-posting-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { blogCoverAlt } from "@/lib/image-alt";
@@ -33,6 +34,14 @@ export async function generateMetadata({
   });
 }
 
+function formatPostDate(isoDate: string, locale: string) {
+  return new Intl.DateTimeFormat(locale === "bg" ? "bg-BG" : "en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(isoDate));
+}
+
 export default async function BlogPostPage({
   params,
 }: {
@@ -46,10 +55,11 @@ export default async function BlogPostPage({
 
   const t = await getTranslations("blogPage");
   const tn = await getTranslations("nav");
-  const formattedDate = new Intl.DateTimeFormat(
-    locale === "bg" ? "bg-BG" : "en-GB",
-    { day: "numeric", month: "long", year: "numeric" },
-  ).format(new Date(post.publishedAt));
+  const formattedDate = formatPostDate(post.publishedAt, locale);
+  const formattedUpdated =
+    post.updatedAt && post.updatedAt !== post.publishedAt
+      ? formatPostDate(post.updatedAt, locale)
+      : null;
   const articleUrl = absoluteUrl(`/blog/${slug}`, locale);
   const coverUrl = post.cover ?? null;
 
@@ -80,28 +90,40 @@ export default async function BlogPostPage({
       </Link>
 
       <article className="mt-8">
-        <header className="flex flex-col gap-6 border-b border-border pb-10">
+        <header className="measure flex flex-col gap-6 border-b border-border pb-10">
           <span className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface px-3 py-1 text-small text-text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent" />
             {post.category}
           </span>
 
-          <h1 className="measure text-balance font-display text-h1 font-bold tracking-tight">
+          <h1 className="text-balance font-display text-h1 font-bold tracking-tight">
             {post.title}
           </h1>
 
-          <p className="measure text-body text-text-muted">{post.excerpt}</p>
+          <p className="text-body text-text-muted">{post.excerpt}</p>
 
-          <time
-            dateTime={post.publishedAt}
-            className="inline-flex items-center gap-1.5 text-small text-text-muted"
-          >
-            <CalendarDays className="h-4 w-4" aria-hidden />
-            {formattedDate}
-          </time>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 text-small text-text-muted">
+            <time
+              dateTime={post.publishedAt}
+              className="inline-flex items-center gap-1.5"
+            >
+              <CalendarDays className="h-4 w-4" aria-hidden />
+              {formattedDate}
+            </time>
+            {formattedUpdated ? (
+              <span className="inline-flex items-center gap-1.5">
+                <CalendarDays className="h-4 w-4" aria-hidden />
+                {t("updated")}: {formattedUpdated}
+              </span>
+            ) : null}
+            <span className="inline-flex items-center gap-1.5">
+              <Clock3 className="h-4 w-4" aria-hidden />
+              {t("readingTime", { minutes: post.readingTimeMinutes })}
+            </span>
+          </div>
         </header>
 
-        {coverUrl && (
+        {coverUrl ? (
           <div className="relative mt-10 aspect-video overflow-hidden rounded-2xl border border-border bg-surface-2">
             <Image
               src={coverUrl}
@@ -112,11 +134,27 @@ export default async function BlogPostPage({
               sizes="(max-width: 1280px) 100vw, 1280px"
             />
           </div>
-        )}
+        ) : null}
 
-        <div className="measure mt-10 flex flex-col gap-6">{post.content}</div>
+        <div className="mt-10 lg:grid lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start lg:gap-12 xl:grid-cols-[minmax(0,1fr)_18rem] xl:gap-16">
+          <div className="min-w-0">
+            <BlogTableOfContents
+              headings={post.headings}
+              label={t("tableOfContents")}
+              className="mb-8 lg:hidden"
+            />
+            <div className="prose-blog">{post.content}</div>
+            <BlogRelatedLinks slug={slug} />
+          </div>
 
-        <BlogRelatedLinks slug={slug} />
+          <aside className="hidden lg:block">
+            <BlogTableOfContents
+              headings={post.headings}
+              label={t("tableOfContents")}
+              sticky
+            />
+          </aside>
+        </div>
       </article>
     </main>
   );

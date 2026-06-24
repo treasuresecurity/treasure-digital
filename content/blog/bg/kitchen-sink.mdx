@@ -1,0 +1,76 @@
+---
+title: "[TEST] Kitchen Sink — MDX rendering"
+slug: kitchen-sink
+locale: bg
+category: "Тест"
+excerpt: "Temporary post to verify tables, callouts, code blocks, lists, links and typography. Delete after review."
+seoTitle: "Kitchen Sink Test | Treasure Digital"
+seoDescription: "Internal test post for MDX blog rendering pipeline."
+publishedAt: "2026-06-24T08:00:00.000Z"
+draft: true
+---
+
+<Callout>
+
+**Direct answer:** This is a test callout box — used for AEO-friendly opening answers in real posts.
+
+</Callout>
+
+Opening paragraph with **bold**, *italic*, and `inline code`. Internal link to [онлайн магазин](/uslugi/onlain-magazin) and external link to [Google](https://google.com).
+
+## Second-level heading
+
+Body under H2. Lists and tables below should render without raw markdown pipes.
+
+### Third-level heading
+
+Nested section for TOC depth.
+
+## Comparison table
+
+| Feature | Presentation site | Selling store |
+| --- | --- | --- |
+| Goal | Inform | Convert |
+| Catalog | Optional | Required |
+| Checkout | No | Yes |
+| SEO | Basic | Product-level |
+
+## Lists
+
+Unordered:
+
+- Amber bullet one
+- Amber bullet two
+- Amber bullet three
+
+Ordered:
+
+1. First step
+2. Second step
+3. Third step
+
+## Blockquote callout style
+
+> This blockquote uses the same visual treatment as callouts — left accent border, subtle surface background.
+
+## Code block
+
+```typescript
+export function greet(name: string) {
+  return `Hello, ${name}!`;
+}
+```
+
+## Figure
+
+<Figure
+  src="/portfolio/Dobrev/1.png"
+  alt="Примерен онлайн магазин — скрийншот"
+  caption="Примерен eCommerce проект от портфолиото на Treasure Digital."
+  width={1274}
+  height={628}
+/>
+
+---
+
+End of kitchen-sink test post. Safe to delete this file after review.
