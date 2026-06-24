@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { blogCoverAlt } from "@/lib/image-alt";
 import type { BlogPostListItem } from "@/sanity/types";
 import { urlFor } from "@/sanity/image";
 
@@ -27,7 +28,7 @@ export async function BlogPostCard({
         {coverUrl ? (
           <Image
             src={coverUrl}
-            alt={post.title}
+            alt={blogCoverAlt(post.title)}
             fill
             loading="lazy"
             className="object-cover transition-transform duration-300 ease-brand group-hover:scale-[1.03]"

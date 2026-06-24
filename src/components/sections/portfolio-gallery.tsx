@@ -8,10 +8,13 @@ import type { PortfolioGalleryImage } from "@/lib/portfolio";
 export function PortfolioGallery({
   images,
   captions,
+  imageAlts,
   title,
 }: {
   images: PortfolioGalleryImage[];
   captions: string[];
+  /** SEO-friendly alt text per image — precomputed on the server. */
+  imageAlts: string[];
   title: string;
 }) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
@@ -22,6 +25,7 @@ export function PortfolioGallery({
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {images.map((image, index) => {
           const isExpanded = expandedIndex === index;
+          const alt = imageAlts[index] ?? captions[index] ?? title;
           return (
             <figure
               key={image.src}
@@ -33,7 +37,7 @@ export function PortfolioGallery({
               <button
                 type="button"
                 aria-expanded={isExpanded}
-                aria-label={captions[index] ?? title}
+                aria-label={alt}
                 onClick={() =>
                   setExpandedIndex(isExpanded ? null : index)
                 }
@@ -46,11 +50,12 @@ export function PortfolioGallery({
                 <div className="bg-surface-2 p-2 sm:p-3">
                   <Image
                     src={image.src}
-                    alt={captions[index] ?? title}
+                    alt={alt}
                     width={image.width}
                     height={image.height}
                     quality={85}
-                    loading="lazy"
+                    priority={index === 0}
+                    loading={index === 0 ? undefined : "lazy"}
                     className="h-auto w-full object-contain"
                     sizes={
                       isExpanded

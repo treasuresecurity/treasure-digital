@@ -11,6 +11,7 @@ import { PortfolioGallery } from "@/components/sections/portfolio-gallery";
 import { PortfolioJsonLd } from "@/components/seo/portfolio-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { absoluteUrl } from "@/lib/site";
+import { portfolioGalleryAlt } from "@/lib/image-alt";
 import { buildPageMetadata } from "@/lib/metadata";
 import { cn } from "@/lib/utils";
 
@@ -59,6 +60,10 @@ export default async function CaseStudyPage({
   const summary = t(`items.${item.key}.summary`);
   const category = t(`items.${item.key}.category`);
   const caseUrl = absoluteUrl(`/portfolio/${slug}`, locale);
+  const galleryImageAlts =
+    item.gallery && galleryCaptions
+      ? galleryCaptions.map((caption) => portfolioGalleryAlt(caption, title))
+      : [];
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
@@ -70,14 +75,14 @@ export default async function CaseStudyPage({
           { name: title, path: `/portfolio/${slug}` },
         ]}
       />
-      {item.gallery && galleryCaptions && (
+      {item.gallery && galleryCaptions && galleryCaptions.length > 0 && (
         <PortfolioJsonLd
           name={title}
           description={summary}
           url={caseUrl}
           category={category}
           images={item.gallery}
-          imageAlts={galleryCaptions}
+          imageAlts={galleryImageAlts}
         />
       )}
       <Link
@@ -137,6 +142,7 @@ export default async function CaseStudyPage({
                 title={tp("galleryTitle")}
                 images={item.gallery}
                 captions={galleryCaptions}
+                imageAlts={galleryImageAlts}
               />
             )}
           </div>

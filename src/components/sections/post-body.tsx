@@ -43,14 +43,21 @@ const components: PortableTextComponents = {
     image: ({ value }) => {
       if (!value?.asset) return null;
       const alt = (value.alt as string | undefined) ?? "";
-      const src = urlFor(value).width(1200).quality(90).url();
+      const width =
+        (value.asset as { metadata?: { dimensions?: { width?: number } } })
+          ?.metadata?.dimensions?.width ?? 1200;
+      const height =
+        (value.asset as { metadata?: { dimensions?: { height?: number } } })
+          ?.metadata?.dimensions?.height ?? 675;
+      const src = urlFor(value).width(1200).quality(85).url();
       return (
         <figure className="overflow-hidden rounded-2xl border border-border bg-surface">
           <Image
             src={src}
             alt={alt}
-            width={1200}
-            height={675}
+            width={width}
+            height={height}
+            loading="lazy"
             className="h-auto w-full object-cover"
             sizes="(max-width: 768px) 100vw, 768px"
           />

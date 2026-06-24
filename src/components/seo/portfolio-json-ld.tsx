@@ -26,7 +26,8 @@ export function PortfolioJsonLd({
   const orgId = `${siteUrl}/#organization`;
 
   const imageObjects = images.map((image, index) => ({
-    "@type": "ImageObject",
+    "@type": "ImageObject" as const,
+    name: imageAlts[index] ?? name,
     url: `${siteUrl}${image.src}`,
     width: image.width,
     height: image.height,

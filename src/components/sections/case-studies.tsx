@@ -35,7 +35,7 @@ export async function CaseStudies() {
         <FeaturedCaseCard
           href={`/portfolio/${featured.slug}`}
           image={featured.image}
-          imageAlt={t(`items.${featured.key}.title`)}
+          imageAlt={t(`items.${featured.key}.coverAlt`)}
           category={t(`items.${featured.key}.category`)}
           title={t(`items.${featured.key}.title`)}
           problem={t(`items.${featured.key}.problem`)}
@@ -53,7 +53,7 @@ export async function CaseStudies() {
               key={item.key}
               href={`/portfolio/${item.slug}`}
               image={item.image}
-              imageAlt={t(`items.${item.key}.title`)}
+              imageAlt={t(`items.${item.key}.coverAlt`)}
               category={t(`items.${item.key}.category`)}
               title={t(`items.${item.key}.title`)}
               problem={t(`items.${item.key}.problem`)}

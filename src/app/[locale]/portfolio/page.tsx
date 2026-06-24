@@ -61,7 +61,7 @@ export default async function PortfolioPage({
           >
             <PortfolioCover
               image={item.image}
-              imageAlt={tc(`items.${item.key}.title`)}
+              imageAlt={tc(`items.${item.key}.coverAlt`)}
               category={tc(`items.${item.key}.category`)}
               resultValue={tc(`items.${item.key}.resultValue`)}
               resultLabel={tc(`items.${item.key}.resultLabel`)}

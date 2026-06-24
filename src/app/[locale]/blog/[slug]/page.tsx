@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { PostBody } from "@/components/sections/post-body";
 import { BlogPostingJsonLd } from "@/components/seo/blog-posting-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
+import { blogCoverAlt } from "@/lib/image-alt";
 import { buildPageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 import { urlFor } from "@/sanity/image";
@@ -107,7 +108,7 @@ export default async function BlogPostPage({
           <div className="relative mt-10 aspect-video overflow-hidden rounded-2xl border border-border bg-surface-2">
             <Image
               src={coverUrl}
-              alt={post.title}
+              alt={blogCoverAlt(post.title)}
               fill
               priority
               className="object-cover"

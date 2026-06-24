@@ -127,7 +127,8 @@
           "Periods — quarterly calendar with VAT per month",
           "Invoices — bank reconciliation and invoice management",
           "AI matching — automatic transfer-to-invoice matching"
-        ]
+        ],
+        "coverAlt": "FinPro accounting dashboard for VAT and cash flow, web app by Treasure Digital"
       },
       "webShop": {
         "title": "From brochure site to a working online store",
@@ -149,7 +150,8 @@
           "Contacts — Google Map, phone, email and live chat",
           "SEO blog Articles — content for organic Google traffic",
           "Product catalog — filters, pricing and Buy button"
-        ]
+        ],
+        "coverAlt": "E-commerce online store with SEO, built by Treasure Digital"
       },
       "sussi": {
         "title": "SUSSI — information storage & sharing management system",
@@ -171,7 +173,8 @@
           "Cloud file manager — drag-and-drop upload and folder organisation",
           "Audit log — every action with IP, user and metadata + CSV export",
           "System settings — limits, session timeout and access permissions"
-        ]
+        ],
+        "coverAlt": "SUSSI cloud file manager with JWT security, built by Treasure Digital"
       }
     }
   },

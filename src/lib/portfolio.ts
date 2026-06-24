@@ -45,12 +45,12 @@ export const portfolioCases: PortfolioCase[] = [
     key: "sussi",
     slug: "sussi",
     // File manager — best product overview for card covers
-    image: "/projects/SUSS/2.png",
+    image: "/portfolio/sussi/2.png",
     gallery: [
-      { src: "/projects/SUSS/1.png", width: 1274, height: 628 },
-      { src: "/projects/SUSS/2.png", width: 1262, height: 620 },
-      { src: "/projects/SUSS/3.png", width: 1278, height: 626 },
-      { src: "/projects/SUSS/4.png", width: 1119, height: 293 },
+      { src: "/portfolio/sussi/1.png", width: 1274, height: 628 },
+      { src: "/portfolio/sussi/2.png", width: 1262, height: 620 },
+      { src: "/portfolio/sussi/3.png", width: 1278, height: 626 },
+      { src: "/portfolio/sussi/4.png", width: 1119, height: 293 },
     ],
   },
 ];
