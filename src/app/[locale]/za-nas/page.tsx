@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AboutPageContent } from "@/components/sections/about-page";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
-import { buildAlternates } from "@/lib/metadata";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -11,11 +11,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "aboutPage" });
 
-  return {
+  return buildPageMetadata({
+    path: "/za-nas",
+    locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: buildAlternates("/za-nas"),
-  };
+  });
 }
 
 export default async function AboutPage({

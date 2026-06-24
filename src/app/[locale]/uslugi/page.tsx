@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { PortfolioCover } from "@/components/layout/portfolio-cover";
 import { allServices } from "@/lib/services";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -11,10 +12,12 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "servicesHub" });
-  return {
+  return buildPageMetadata({
+    path: "/uslugi",
+    locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
-  };
+  });
 }
 
 export default async function ServicesHubPage({

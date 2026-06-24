@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LegalPageContent } from "@/components/sections/legal-page";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
-import { buildAlternates } from "@/lib/metadata";
+import { buildPageMetadata } from "@/lib/metadata";
 import { getAllLegalSlugs, getLegalBySlug } from "@/lib/legal";
 
 export function generateStaticParams() {
@@ -23,12 +23,12 @@ export async function generateMetadata({
     namespace: `legalPages.items.${page.key}`,
   });
 
-  return {
+  return buildPageMetadata({
+    path: `/pravna-informatsia/${slug}`,
+    locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: buildAlternates(`/pravna-informatsia/${slug}`),
-    robots: { index: true, follow: true },
-  };
+  });
 }
 
 export default async function LegalDocumentPage({

@@ -6,7 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { PostBody } from "@/components/sections/post-body";
 import { ArticleJsonLd } from "@/components/seo/article-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
-import { buildAlternates } from "@/lib/metadata";
+import { buildPageMetadata } from "@/lib/metadata";
 import { absoluteUrl } from "@/lib/site";
 import { urlFor } from "@/sanity/image";
 import { getAllPostSlugs, getPostBySlug } from "@/sanity/queries";
@@ -25,11 +25,12 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug, locale);
   if (!post) return {};
 
-  return {
+  return buildPageMetadata({
+    path: `/blog/${slug}`,
+    locale,
     title: post.seoTitle ?? post.title,
     description: post.seoDescription ?? post.excerpt,
-    alternates: buildAlternates(`/blog/${slug}`),
-  };
+  });
 }
 
 export default async function BlogPostPage({

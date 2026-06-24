@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { PortfolioCover } from "@/components/layout/portfolio-cover";
 import { portfolioCases } from "@/lib/portfolio";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -12,10 +13,12 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "portfolioPage" });
-  return {
+  return buildPageMetadata({
+    path: "/portfolio",
+    locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
-  };
+  });
 }
 
 export default async function PortfolioPage({

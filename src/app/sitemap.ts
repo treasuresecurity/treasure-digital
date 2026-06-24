@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 import { absoluteUrl, getAllSitemapPaths } from "@/lib/site";
+import {
+  sitemapChangeFrequency,
+  sitemapPriority,
+} from "@/lib/sitemap-config";
 import { getAllPostSlugs } from "@/sanity/queries";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -10,16 +14,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const paths = [...staticPaths, ...blogPaths];
   const lastModified = new Date();
 
-  return paths.map((path) => ({
-    url: absoluteUrl(path, routing.defaultLocale),
-    lastModified,
-    alternates: {
-      languages: Object.fromEntries(
-        routing.locales.map((altLocale) => [
-          altLocale,
-          absoluteUrl(path, altLocale),
-        ]),
-      ),
-    },
-  }));
+  const hreflangAlternates = (path: string) =>
+    Object.fromEntries(
+      routing.locales.map((altLocale) => [
+        altLocale,
+        absoluteUrl(path, altLocale),
+      ]),
+    );
+
+  return routing.locales.flatMap((locale) =>
+    paths.map((path) => ({
+      url: absoluteUrl(path, locale),
+      lastModified,
+      changeFrequency: sitemapChangeFrequency(path),
+      priority: sitemapPriority(path),
+      alternates: {
+        languages: hreflangAlternates(path),
+      },
+    })),
+  );
 }

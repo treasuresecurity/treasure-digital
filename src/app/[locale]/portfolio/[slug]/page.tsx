@@ -9,6 +9,7 @@ import {
 import { buttonVariants } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/sections/portfolio-gallery";
 import { cn } from "@/lib/utils";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return getAllCaseSlugs().map((slug) => ({ slug }));
@@ -24,10 +25,12 @@ export async function generateMetadata({
   if (!item) return {};
 
   const t = await getTranslations({ locale, namespace: "caseStudies" });
-  return {
+  return buildPageMetadata({
+    path: `/portfolio/${slug}`,
+    locale,
     title: t(`items.${item.key}.title`),
     description: t(`items.${item.key}.summary`),
-  };
+  });
 }
 
 export default async function CaseStudyPage({

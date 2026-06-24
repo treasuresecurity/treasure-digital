@@ -11,6 +11,12 @@
     "necessaryOnly": "Necessary only",
     "acceptAll": "Accept all"
   },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page doesn't exist or has moved. Head back home or browse our services.",
+    "homeCta": "Go to homepage",
+    "servicesCta": "View services"
+  },
   "nav": {
     "services": "Services",
     "portfolio": "Portfolio",
@@ -20,6 +26,10 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
     "home": "Go to homepage"
+  },
+  "homePage": {
+    "metaTitle": "Web Development & Marketing in Plovdiv | Treasure Digital",
+    "metaDescription": "Treasure Digital — digital agency in Plovdiv and worldwide. Websites, apps, online stores, SEO and Google Ads. Free consultation — reply within 24 hours."
   },
   "hero": {
     "badge": "Digital agency",

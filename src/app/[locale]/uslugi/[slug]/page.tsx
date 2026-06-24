@@ -10,6 +10,7 @@ import {
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
 import { ServiceJsonLd } from "@/components/seo/service-json-ld";
 import { absoluteUrl } from "@/lib/site";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export function generateStaticParams() {
   return getAllServiceSlugs().map((slug) => ({ slug }));
@@ -25,10 +26,12 @@ export async function generateMetadata({
   if (!service) return {};
 
   const t = await getTranslations({ locale, namespace: "servicePages" });
-  return {
+  return buildPageMetadata({
+    path: `/uslugi/${slug}`,
+    locale,
     title: t(`items.${service.key}.metaTitle`),
     description: t(`items.${service.key}.metaDescription`),
-  };
+  });
 }
 
 export default async function ServicePage({

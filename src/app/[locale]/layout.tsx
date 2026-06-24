@@ -10,7 +10,7 @@ import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { GoogleTagManager } from "@/components/seo/google-tag-manager";
 import { CookieConsentBanner } from "@/components/layout/cookie-consent";
 import { routing } from "@/i18n/routing";
-import { buildAlternates } from "@/lib/metadata";
+import { buildAlternates, previewRobots } from "@/lib/metadata";
 import { getSiteUrl } from "@/lib/site";
 import "../globals.css";
 
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
   description:
     "Дигитална агенция за уеб разработка, приложения и реклама. / Digital agency for web development, apps and advertising.",
   alternates: buildAlternates(""),
+  robots: previewRobots(),
 };
 
 export function generateStaticParams() {

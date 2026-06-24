@@ -2,7 +2,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { getPosts } from "@/sanity/queries";
 import { BlogPostCard } from "@/components/sections/blog-post-card";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
-import { buildAlternates } from "@/lib/metadata";
+import { buildPageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata({
   params,
@@ -12,11 +12,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "blogPage" });
 
-  return {
+  return buildPageMetadata({
+    path: "/blog",
+    locale,
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: buildAlternates("/blog"),
-  };
+  });
 }
 
 export default async function BlogPage({
