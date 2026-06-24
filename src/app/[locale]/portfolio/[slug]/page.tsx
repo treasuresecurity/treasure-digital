@@ -8,6 +8,7 @@ import {
 } from "@/lib/portfolio";
 import { buttonVariants } from "@/components/ui/button";
 import { PortfolioGallery } from "@/components/sections/portfolio-gallery";
+import { PortfolioRelatedServices } from "@/components/sections/internal-links";
 import { PortfolioJsonLd } from "@/components/seo/portfolio-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { absoluteUrl } from "@/lib/site";
@@ -167,6 +168,8 @@ export default async function CaseStudyPage({
                 ))}
               </ul>
             </div>
+
+            <PortfolioRelatedServices caseKey={item.key} />
 
             <Link
               href="/kontakti"

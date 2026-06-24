@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ContactForm, ContactChannels } from "@/components/sections/contact-form";
-import { SITE_EMAIL, SITE_MAILTO } from "@/lib/contact";
+import { NapBlock } from "@/components/layout/nap-block";
 import { buildPageMetadata } from "@/lib/metadata";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 
@@ -64,15 +64,14 @@ export default async function ContactPage({
           </h2>
           <p className="text-body text-text-muted">{t("channelsSubtitle")}</p>
           <ContactChannels />
-          <p className="text-small text-text-muted">
-            {t("emailNote")}{" "}
-            <a
-              href={SITE_MAILTO}
-              className="text-primary transition-colors hover:text-brand-blue-600"
-            >
-              {SITE_EMAIL}
-            </a>
-          </p>
+
+          <section className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-6">
+            <h2 className="font-display text-h3 font-bold tracking-tight">
+              {t("locationTitle")}
+            </h2>
+            <p className="text-body text-text-muted">{t("locationText")}</p>
+            <NapBlock showLegalName />
+          </section>
         </div>
       </div>
     </main>

@@ -8,6 +8,11 @@ import {
   type ServiceKey,
 } from "@/lib/services";
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
+import { ServiceRelatedLinks } from "@/components/sections/internal-links";
+import {
+  getPortfolioCaseKeyForService,
+  getPortfolioSlugForService,
+} from "@/lib/internal-links";
 import { ServiceJsonLd } from "@/components/seo/service-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { absoluteUrl } from "@/lib/site";
@@ -57,6 +62,9 @@ export default async function ServicePage({
   const title = t(`items.${key}.title`);
   const subtitle = t(`items.${key}.subtitle`);
   const baseUrl = absoluteUrl(`/uslugi/${slug}`, locale);
+  const portfolioSlug = getPortfolioSlugForService(key);
+  const portfolioCaseKey = getPortfolioCaseKeyForService(key);
+  const ti = await getTranslations("internalLinks");
 
   return (
     <main id="main" className="mx-auto w-full max-w-7xl px-6 py-16 lg:py-24">
@@ -130,8 +138,19 @@ export default async function ServicePage({
               <p className="mt-3 measure text-body text-text-muted">
                 {t(`items.${key}.caseStudy`)}
               </p>
+              {portfolioSlug && portfolioCaseKey && (
+                <Link
+                  href={`/portfolio/${portfolioSlug}`}
+                  className="mt-4 inline-flex items-center gap-1.5 text-small font-medium text-primary transition-colors hover:text-brand-blue-600"
+                >
+                  {ti("viewCaseStudy")}
+                  <span aria-hidden>→</span>
+                </Link>
+              )}
             </section>
           )}
+
+          <ServiceRelatedLinks serviceKey={key} locale={locale} />
 
           <section className="flex flex-col gap-6">
             <h2 className="font-display text-h2 font-bold tracking-tight">

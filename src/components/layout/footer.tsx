@@ -1,8 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/layout/logo";
+import { NapBlock } from "@/components/layout/nap-block";
 import { navItems } from "@/lib/nav";
-import { SITE_EMAIL, SITE_MAILTO } from "@/lib/contact";
 
 const legalLinks = [
   { key: "privacy" as const, href: "/pravna-informatsia/poveritelnost" },
@@ -66,24 +66,13 @@ export async function Footer() {
             <h3 className="text-small font-medium uppercase tracking-wider text-text-muted">
               {t("contact")}
             </h3>
-            <ul className="flex flex-col gap-2 text-body text-text-muted">
-              <li>
-                <a
-                  href={SITE_MAILTO}
-                  className="transition-colors hover:text-text"
-                >
-                  {SITE_EMAIL}
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/kontakti"
-                  className="transition-colors hover:text-text"
-                >
-                  {tn("contact")}
-                </Link>
-              </li>
-            </ul>
+            <NapBlock />
+            <Link
+              href="/kontakti"
+              className="text-small font-medium text-primary transition-colors hover:text-brand-blue-600"
+            >
+              {t("contactCta")}
+            </Link>
           </div>
         </div>
 

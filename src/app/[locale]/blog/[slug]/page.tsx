@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ArrowLeft, CalendarDays } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { PostBody } from "@/components/sections/post-body";
+import { BlogRelatedLinks } from "@/components/sections/internal-links";
 import { BlogPostingJsonLd } from "@/components/seo/blog-posting-json-ld";
 import { BreadcrumbJsonLd } from "@/components/seo/breadcrumb-json-ld";
 import { blogCoverAlt } from "@/lib/image-alt";
@@ -120,6 +121,8 @@ export default async function BlogPostPage({
         <div className="measure mt-10">
           <PostBody value={post.body} />
         </div>
+
+        <BlogRelatedLinks slug={slug} />
       </article>
     </main>
   );

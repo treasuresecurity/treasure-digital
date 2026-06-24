@@ -253,7 +253,8 @@
       "terms": "Terms of service",
       "cookies": "Cookies"
     },
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "contactCta": "Full contact details →"
   },
   "aboutPage": {
     "metaTitle": "About — Treasure Digital",
@@ -286,6 +287,8 @@
       }
     },
     "statsTitle": "By the numbers",
+    "localTitle": "Based in Plovdiv",
+    "localText": "We work with clients across Bulgaria and internationally. Our office is in Plovdiv — reach us by phone, Viber, WhatsApp or email for a free consultation.",
     "ctaTitle": "Ready to grow?",
     "ctaSubtitle": "Tell us about your project — we'll get back with concrete next steps and a proposal.",
     "ctaButton": "Free consultation"
@@ -331,7 +334,16 @@
       "viberValue": "+359 88 546 2525",
       "whatsapp": "WhatsApp",
       "whatsappValue": "+359 88 546 2525"
-    }
+    },
+    "locationTitle": "Location & contact",
+    "locationText": "Treasure Digital is a digital agency based in Plovdiv, Bulgaria. We serve clients locally and remotely — with the same standard of communication and results."
+  },
+  "internalLinks": {
+    "relatedTitle": "Related resources",
+    "caseStudyLabel": "Portfolio case study",
+    "articlesLabel": "Blog articles",
+    "servicesTitle": "Related services",
+    "viewCaseStudy": "View portfolio case study"
   },
   "contactForm": {
     "nameLabel": "Name",

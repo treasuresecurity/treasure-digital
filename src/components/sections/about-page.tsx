@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import type { LucideIcon } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { NapBlock } from "@/components/layout/nap-block";
 import { aboutValues } from "@/lib/about";
 import { buttonVariants } from "@/components/ui/button";
 import { InfinityMark } from "@/components/ui/infinity-mark";
@@ -84,6 +85,17 @@ export async function AboutPageContent() {
             </div>
           ))}
         </dl>
+      </section>
+
+      <section className="mt-16 flex flex-col gap-6 rounded-2xl border border-border bg-surface p-8 sm:p-10">
+        <h2 className="font-display text-h2 font-bold tracking-tight">
+          {t("localTitle")}
+        </h2>
+        <p className="measure text-body text-text-muted">{t("localText")}</p>
+        <NapBlock showLegalName />
+        <Link href="/kontakti" className={buttonVariants({ variant: "secondary" })}>
+          {t("ctaButton")}
+        </Link>
       </section>
 
       <section className="mt-16 flex flex-col items-start gap-6 rounded-2xl border border-border bg-surface p-8 sm:p-10">
