@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { pushLeadEvent } from "@/components/seo/google-tag-manager";
+import { pushLeadEvent, pushPhoneClick } from "@/components/seo/google-tag-manager";
 import {
   SITE_PHONE_DISPLAY,
   SITE_PHONE_TEL,
@@ -194,6 +194,9 @@ export function ContactChannels({ className }: { className?: string }) {
           <a
             href={href}
             className="flex items-center gap-4 rounded-2xl border border-border bg-surface p-4 transition-colors hover:border-primary/30"
+            onClick={() => {
+              pushPhoneClick(`contact_channels_${key}`);
+            }}
           >
             <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-surface-2 text-primary">
               <Icon className="h-5 w-5" />

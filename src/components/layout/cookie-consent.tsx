@@ -11,9 +11,12 @@ import {
   setConsentCookie,
   type CookieConsentValue,
 } from "@/lib/cookie-consent";
+import {
+  GA4_MEASUREMENT_ID,
+  GTM_CONTAINER_ID,
+} from "@/lib/site-verification";
 
 export function GoogleTagManager() {
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -25,7 +28,7 @@ export function GoogleTagManager() {
     return () => window.removeEventListener("cookie-consent-updated", sync);
   }, []);
 
-  if (!gtmId || !enabled) return null;
+  if (!GTM_CONTAINER_ID || !enabled) return null;
 
   return (
     <>
@@ -34,12 +37,12 @@ export function GoogleTagManager() {
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${gtmId}');
+        })(window,document,'script','dataLayer','${GTM_CONTAINER_ID}');
       `}</Script>
       <noscript>
         <iframe
           title="Google Tag Manager"
-          src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+          src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
           height="0"
           width="0"
           style={{ display: "none", visibility: "hidden" }}
@@ -49,13 +52,35 @@ export function GoogleTagManager() {
   );
 }
 
-/** Push a lead event to dataLayer — only when analytics consent is granted. */
-export function pushLeadEvent(source: string) {
-  if (typeof window === "undefined") return;
-  if (!hasAnalyticsConsent(getConsentFromDocument())) return;
-  const w = window as Window & { dataLayer?: Record<string, string>[] };
-  w.dataLayer = w.dataLayer ?? [];
-  w.dataLayer.push({ event: "lead", lead_source: source });
+export function GoogleAnalytics() {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const sync = () => {
+      setEnabled(hasAnalyticsConsent(getConsentFromDocument()));
+    };
+    sync();
+    window.addEventListener("cookie-consent-updated", sync);
+    return () => window.removeEventListener("cookie-consent-updated", sync);
+  }, []);
+
+  if (!GA4_MEASUREMENT_ID || !enabled) return null;
+
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA4_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', '${GA4_MEASUREMENT_ID}', { anonymize_ip: true });
+      `}</Script>
+    </>
+  );
 }
 
 export function CookieConsentBanner() {

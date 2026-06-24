@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Link } from "@/i18n/navigation";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { pushLeadEvent } from "@/components/seo/google-tag-manager";
+import { pushCtaClick, pushLeadEvent } from "@/components/seo/google-tag-manager";
 import { cn } from "@/lib/utils";
 
 function buildSchema(messages: {
@@ -172,6 +172,7 @@ export function CtaBand() {
           <p className="measure text-body text-text-muted">{t("subtitle")}</p>
           <Link
             href="/kontakti"
+            onClick={() => pushCtaClick("cta_band")}
             className={cn(buttonVariants({ variant: "secondary", size: "lg" }), "w-fit")}
           >
             {tc("cta")}

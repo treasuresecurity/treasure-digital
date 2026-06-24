@@ -1,4 +1,4 @@
-import { Link } from "@/i18n/navigation";
+import { TrackedCtaLink } from "@/components/ui/tracked-cta-link";
 import { cn } from "@/lib/utils";
 
 export function ServiceCover({
@@ -51,12 +51,13 @@ export function ServiceCta({
         <p className="measure font-display text-h3 font-bold tracking-tight">
           {title}
         </p>
-        <Link
+        <TrackedCtaLink
           href="/kontakti"
+          location="service_cta_band"
           className="inline-flex h-12 shrink-0 items-center justify-center rounded-btn bg-primary px-7 text-body font-medium text-primary-foreground transition-all duration-200 ease-brand hover:-translate-y-0.5 hover:bg-brand-blue-600 hover:shadow-glow"
         >
           {buttonLabel}
-        </Link>
+        </TrackedCtaLink>
       </div>
     </section>
   );

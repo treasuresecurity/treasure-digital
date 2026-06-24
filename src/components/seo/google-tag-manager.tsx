@@ -2,6 +2,13 @@
 
 export {
   CookieConsentBanner,
+  GoogleAnalytics,
   GoogleTagManager,
-  pushLeadEvent,
 } from "@/components/layout/cookie-consent";
+
+export {
+  pushCtaClick,
+  pushEmailClick,
+  pushLeadEvent,
+  pushPhoneClick,
+} from "@/lib/analytics-client";

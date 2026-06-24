@@ -9,6 +9,7 @@ import { Logo } from "./logo";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleSwitch } from "@/components/locale-switch";
 import { buttonVariants } from "@/components/ui/button";
+import { pushCtaClick } from "@/components/seo/google-tag-manager";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -41,6 +42,7 @@ export function Header() {
           <ThemeToggle className="hidden sm:inline-flex" />
           <Link
             href="/kontakti"
+            onClick={() => pushCtaClick("header_desktop")}
             className={cn(buttonVariants({ size: "sm" }), "hidden md:inline-flex")}
           >
             {tc("cta")}
@@ -79,7 +81,10 @@ export function Header() {
             </div>
             <Link
               href="/kontakti"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                pushCtaClick("header_mobile");
+                setOpen(false);
+              }}
               className={cn(buttonVariants(), "mt-2 w-full")}
             >
               {tc("cta")}

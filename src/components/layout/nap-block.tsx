@@ -5,14 +5,20 @@ import {
   SITE_PHONE_DISPLAY,
   SITE_PHONE_TEL,
 } from "@/lib/contact";
+import {
+  TrackedEmailLink,
+  TrackedPhoneLink,
+} from "@/components/ui/tracked-contact-link";
 import { cn } from "@/lib/utils";
 
 export function NapBlock({
   className,
   showLegalName = false,
+  location = "nap_block",
 }: {
   className?: string;
   showLegalName?: boolean;
+  location?: string;
 }) {
   return (
     <address
@@ -36,20 +42,20 @@ export function NapBlock({
         {", "}
         <span itemProp="addressCountry">{BUSINESS.addressCountryName}</span>
       </span>
-      <a
+      <TrackedPhoneLink
         href={SITE_PHONE_TEL}
-        itemProp="telephone"
+        location={location}
         className="mt-2 block transition-colors hover:text-text"
       >
-        {SITE_PHONE_DISPLAY}
-      </a>
-      <a
+        <span itemProp="telephone">{SITE_PHONE_DISPLAY}</span>
+      </TrackedPhoneLink>
+      <TrackedEmailLink
         href={SITE_MAILTO}
-        itemProp="email"
+        location={location}
         className="mt-1 block transition-colors hover:text-text"
       >
-        {SITE_EMAIL}
-      </a>
+        <span itemProp="email">{SITE_EMAIL}</span>
+      </TrackedEmailLink>
       <meta itemProp="areaServed" content={formatPostalAddress()} />
     </address>
   );

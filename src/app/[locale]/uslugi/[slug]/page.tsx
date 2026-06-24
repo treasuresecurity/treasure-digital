@@ -9,6 +9,7 @@ import {
 } from "@/lib/services";
 import { DirectAnswerBlock } from "@/components/sections/direct-answer";
 import { ServiceCover, ServiceCta } from "@/components/sections/service-page";
+import { TrackedCtaLink } from "@/components/ui/tracked-cta-link";
 import { ServiceRelatedLinks } from "@/components/sections/internal-links";
 import {
   getPortfolioCaseKeyForService,
@@ -187,12 +188,13 @@ export default async function ServicePage({
             <p className="mt-2 text-body text-text-muted">
               {t("sidebarText")}
             </p>
-            <Link
+            <TrackedCtaLink
               href="/kontakti"
+              location="service_sidebar"
               className="mt-6 flex h-12 w-full items-center justify-center rounded-btn bg-primary text-body font-medium text-primary-foreground transition-all duration-200 ease-brand hover:-translate-y-0.5 hover:bg-brand-blue-600 hover:shadow-glow"
             >
               {tc("cta")}
-            </Link>
+            </TrackedCtaLink>
           </div>
         </aside>
       </div>

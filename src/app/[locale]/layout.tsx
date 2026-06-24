@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import { Unbounded, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -8,11 +10,18 @@ import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { OrganizationJsonLd } from "@/components/seo/organization-json-ld";
 import { ResourceHints } from "@/components/seo/resource-hints";
-import { GoogleTagManager } from "@/components/seo/google-tag-manager";
+import {
+  GoogleAnalytics,
+  GoogleTagManager,
+} from "@/components/seo/google-tag-manager";
 import { CookieConsentBanner } from "@/components/layout/cookie-consent";
 import { routing } from "@/i18n/routing";
 import { buildAlternates, previewRobots } from "@/lib/metadata";
 import { getSiteUrl } from "@/lib/site";
+import {
+  BING_VERIFICATION,
+  GSC_VERIFICATION,
+} from "@/lib/site-verification";
 import "../globals.css";
 
 // Display font — bold, geometric, full Cyrillic support.
@@ -42,6 +51,18 @@ export const metadata: Metadata = {
     "Дигитална агенция за уеб разработка, приложения и реклама. / Digital agency for web development, apps and advertising.",
   alternates: buildAlternates(""),
   robots: previewRobots(),
+  verification: {
+    google: GSC_VERIFICATION,
+    ...(BING_VERIFICATION ? { other: { "msvalidate.01": BING_VERIFICATION } } : {}),
+  },
+  manifest: "/manifest.webmanifest",
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#000817" },
+  ],
 };
 
 export function generateStaticParams() {
@@ -75,6 +96,7 @@ export default async function LocaleLayout({
       </head>
       <body className="min-h-full">
         <GoogleTagManager />
+        <GoogleAnalytics />
         <OrganizationJsonLd />
         <ThemeProvider
           attribute="class"
@@ -93,6 +115,8 @@ export default async function LocaleLayout({
             {children}
             <Footer />
             <CookieConsentBanner />
+            <Analytics />
+            <SpeedInsights />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
